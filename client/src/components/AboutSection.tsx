@@ -3,34 +3,39 @@ import { Link } from "wouter";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-background">
-      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 bg-secondary/30">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div className="order-2 lg:order-1 relative">
-          <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
-          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
           
-          <div className="relative bg-muted aspect-[4/5] rounded-sm overflow-hidden shadow-lg">
-             {/* Placeholder for image */}
-             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-             <img 
-               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" 
-               alt="Students discussing in a library" 
-               className="w-full h-full object-cover"
-             />
-             <div className="absolute bottom-8 left-8 right-8 z-20 text-white">
-               <p className="font-serif text-xl italic">
-                 "The aim of the Society is to promote the discussion of ethical issues in a spirit of open inquiry."
-               </p>
+          <div className="relative bg-white p-4 rounded-3xl shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+             <div className="aspect-[4/5] rounded-2xl overflow-hidden relative">
+               <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent z-10"></div>
+               <img 
+                 src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Students discussing in a library" 
+                 className="w-full h-full object-cover"
+               />
+               <div className="absolute bottom-8 left-8 right-8 z-20 text-white">
+                 <p className="font-serif text-2xl font-bold leading-tight">
+                   "Promoting the discussion of ethical issues in a spirit of open inquiry."
+                 </p>
+               </div>
              </div>
           </div>
         </div>
 
         <div className="order-1 lg:order-2 space-y-8">
-          <h2 className="font-serif text-4xl font-bold text-foreground">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
+            <span className="text-primary text-sm font-bold tracking-wide uppercase">Who We Are</span>
+          </div>
+          
+          <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
             Cultivating <span className="text-primary">Moral Leadership</span>
           </h2>
           
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-medium">
             <p>
               Founded in 2004, the Princeton Undergraduate Society of Ethics (PUSE) serves as the university's premier forum for ethical discourse.
             </p>
@@ -44,8 +49,8 @@ export default function AboutSection() {
 
           <div className="pt-4">
             <Link href="/about">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-8 h-12 text-base font-medium transition-all">
-                READ OUR FULL HISTORY
+              <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 h-12 text-base font-bold shadow-lg transition-transform hover:scale-105">
+                Read Our Full History
               </Button>
             </Link>
           </div>
