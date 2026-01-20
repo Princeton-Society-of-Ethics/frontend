@@ -3,70 +3,55 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background text-foreground">
-      {/* Soft Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 to-background pointer-events-none"></div>
-      
-      {/* Decorative Circle */}
-      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background text-foreground border-b-4 border-foreground">
+      {/* Brutalist Grid Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-            <span className="h-2 w-2 rounded-full bg-primary"></span>
-            <span className="text-primary text-sm font-bold tracking-wide uppercase">
-              Est. 2004
+      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch border-x-4 border-foreground bg-background">
+        <div className="space-y-12 p-12 border-b-4 lg:border-b-0 lg:border-r-4 border-foreground flex flex-col justify-center">
+          <div className="inline-block bg-foreground text-background px-4 py-2 transform -rotate-2 w-fit">
+            <span className="font-serif text-sm font-bold tracking-widest uppercase">
+              EST. 2004 // PRINCETON
             </span>
           </div>
           
-          <h1 className="font-serif text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-foreground">
-            What do we owe <br/>
-            <span className="text-primary">to each other?</span>
+          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-none tracking-tighter uppercase">
+            WHAT DO WE OWE<br/>
+            <span className="bg-primary text-foreground px-2">TO EACH OTHER?</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-medium">
-            The Princeton Undergraduate Society of Ethics is a student-run organization dedicated to fostering rigorous ethical inquiry and moral reflection.
+          <p className="text-xl font-mono border-l-4 border-primary pl-6 py-2 max-w-md">
+            The Princeton Undergraduate Society of Ethics: Rigorous inquiry. Moral reflection. No compromise.
           </p>
           
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-0 border-4 border-foreground w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <Link href="/initiatives">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 text-lg font-bold shadow-lg shadow-primary/20 transition-transform hover:scale-105">
-                Explore Initiatives
+              <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 rounded-none px-8 h-16 text-lg font-bold border-r-4 border-foreground">
+                EXPLORE INITIATIVES
               </Button>
             </Link>
             <Link href="/about">
-              <Button variant="outline" size="lg" className="border-2 border-foreground/10 text-foreground hover:bg-secondary hover:text-foreground rounded-full px-8 h-14 text-lg font-bold transition-transform hover:scale-105">
-                Our Mission
+              <Button variant="ghost" size="lg" className="bg-background text-foreground hover:bg-foreground hover:text-background rounded-none px-8 h-16 text-lg font-bold">
+                OUR MISSION
               </Button>
             </Link>
           </div>
         </div>
 
-        <div className="relative hidden lg:block h-[600px] w-full">
-          {/* Modern Image Grid Layout */}
-          <div className="grid grid-cols-2 gap-4 h-full">
-            <div className="space-y-4 mt-12">
-              <div className="bg-secondary h-64 rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-500">
-                 <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <img src="/logo.svg" className="w-24 h-24 opacity-20" alt="Logo" />
-                 </div>
-              </div>
-              <div className="bg-foreground h-48 rounded-2xl overflow-hidden shadow-lg p-6 flex flex-col justify-center text-background transform hover:-translate-y-2 transition-transform duration-500 delay-100">
-                 <p className="font-serif text-lg font-bold mb-2">"The unexamined life is not worth living."</p>
-                 <p className="text-sm opacity-70">— Socrates</p>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="bg-white h-48 rounded-2xl overflow-hidden shadow-lg p-6 flex flex-col justify-center border border-border transform hover:-translate-y-2 transition-transform duration-500 delay-200">
-                 <p className="font-serif text-lg font-bold mb-2 text-foreground">"Ethics is knowing the difference..."</p>
-                 <p className="text-sm text-muted-foreground">— Potter Stewart</p>
-              </div>
-              <div className="bg-secondary h-64 rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-500 delay-300">
-                 <div className="w-full h-full bg-gradient-to-tl from-primary/20 to-primary/5 flex items-center justify-center">
-                    <span className="font-serif text-6xl font-bold text-primary/20">?</span>
-                 </div>
-              </div>
-            </div>
+        <div className="relative hidden lg:flex flex-col">
+          <div className="flex-1 bg-foreground text-background p-12 flex items-center justify-center border-b-4 border-foreground">
+             <img 
+              src="/logo.svg" 
+              alt="The Thinker" 
+              className="h-64 w-64 object-contain invert brightness-0"
+            />
+          </div>
+          <div className="flex-1 bg-primary p-12 flex flex-col justify-center relative overflow-hidden">
+            <p className="font-serif text-4xl font-bold leading-tight relative z-10">
+              "THE UNEXAMINED LIFE IS NOT WORTH LIVING."
+            </p>
+            <p className="font-mono text-sm mt-4 font-bold uppercase tracking-widest relative z-10">— SOCRATES</p>
+            <div className="absolute -bottom-10 -right-10 text-9xl font-serif font-bold opacity-20 rotate-12">?</div>
           </div>
         </div>
       </div>

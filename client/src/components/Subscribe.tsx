@@ -3,53 +3,47 @@ import { Input } from "@/components/ui/input";
 
 export default function Subscribe() {
   return (
-    <section className="py-24 bg-primary relative overflow-hidden">
-      {/* Modern Background Shapes */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 transform origin-bottom-right pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-full bg-black/5 -skew-x-12 transform origin-top-left pointer-events-none"></div>
-
+    <section className="py-24 bg-foreground text-background relative overflow-hidden">
       <div className="container relative z-10">
-        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl p-8 md:p-16 overflow-hidden relative">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
+        <div className="max-w-5xl mx-auto border-4 border-background p-8 md:p-16 relative">
+          <div className="absolute top-0 left-0 bg-primary text-foreground px-4 py-1 font-mono font-bold text-sm uppercase transform -translate-y-1/2 translate-x-8 border-2 border-background">
+            Signal_Input
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="font-serif text-4xl font-extrabold text-foreground leading-tight">
-                Join the <span className="text-primary">Conversation</span>
+            <div className="space-y-8">
+              <h2 className="font-serif text-5xl font-bold leading-none uppercase">
+                JOIN THE <span className="text-primary">CONVERSATION</span>
               </h2>
-              <p className="text-lg text-muted-foreground font-medium">
-                Subscribe to our newsletter to receive updates on upcoming events, recent journal publications, and opportunities for fellowship.
+              <p className="text-lg font-mono leading-relaxed border-l-4 border-primary pl-6">
+                Subscribe to our newsletter. Receive updates. Engage in discourse. No spam.
               </p>
-              <div className="flex items-center gap-3 text-sm font-bold text-foreground bg-secondary/50 p-4 rounded-xl">
-                <span className="flex h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
-                <span>Weekly updates during term time</span>
+              <div className="flex items-center gap-3 text-sm font-bold font-mono bg-background/10 p-4 border border-background">
+                <span className="flex h-3 w-3 bg-primary animate-pulse"></span>
+                <span className="uppercase tracking-widest">Status: Active // Weekly Updates</span>
               </div>
             </div>
 
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="first-name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">First Name</label>
-                  <Input id="first-name" placeholder="Immanuel" className="bg-secondary/30 border-transparent focus:border-primary focus:bg-white h-12 rounded-xl transition-all" />
+                  <label htmlFor="first-name" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">First Name</label>
+                  <Input id="first-name" placeholder="IMMANUEL" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="last-name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Last Name</label>
-                  <Input id="last-name" placeholder="Kant" className="bg-secondary/30 border-transparent focus:border-primary focus:bg-white h-12 rounded-xl transition-all" />
+                  <label htmlFor="last-name" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Last Name</label>
+                  <Input id="last-name" placeholder="KANT" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Email Address</label>
-                <Input id="email" type="email" placeholder="ikant@princeton.edu" className="bg-secondary/30 border-transparent focus:border-primary focus:bg-white h-12 rounded-xl transition-all" />
+                <label htmlFor="email" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Email Address</label>
+                <Input id="email" type="email" placeholder="IKANT@PRINCETON.EDU" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
               </div>
 
-              <Button type="submit" className="w-full bg-foreground text-background hover:bg-primary hover:text-white h-14 text-lg font-bold rounded-xl shadow-lg transition-all mt-2">
-                Subscribe Now
+              <Button type="submit" className="w-full bg-primary text-foreground hover:bg-background hover:text-foreground h-14 text-lg font-bold rounded-none border-2 border-transparent hover:border-primary transition-all mt-4 uppercase font-mono">
+                [ Initiate_Subscription ]
               </Button>
-              
-              <p className="text-xs text-muted-foreground text-center mt-4 font-medium">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
             </form>
           </div>
         </div>
