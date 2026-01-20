@@ -30,13 +30,13 @@ export default function Footer() {
           <h3 className="font-serif text-lg font-semibold mb-6 text-primary">Connect</h3>
           <ul className="space-y-4">
             <li>
-              <Link href="/contact">
-                <a className="text-background/70 hover:text-primary transition-colors">Contact Us</a>
+              <Link href="/contact" className="text-background/70 hover:text-primary transition-colors">
+                Contact Us
               </Link>
             </li>
             <li>
-              <Link href="/subscribe">
-                <a className="text-background/70 hover:text-primary transition-colors">Subscribe to Newsletter</a>
+              <Link href="/subscribe" className="text-background/70 hover:text-primary transition-colors">
+                Subscribe to Newsletter
               </Link>
             </li>
             <li>
@@ -51,13 +51,13 @@ export default function Footer() {
           <h3 className="font-serif text-lg font-semibold mb-6 text-primary">Resources</h3>
           <ul className="space-y-4">
             <li>
-              <Link href="/journal">
-                <a className="text-background/70 hover:text-primary transition-colors">The Journal</a>
+              <Link href="/journal" className="text-background/70 hover:text-primary transition-colors">
+                The Journal
               </Link>
             </li>
             <li>
-              <Link href="/fellowships">
-                <a className="text-background/70 hover:text-primary transition-colors">Fellowships</a>
+              <Link href="/fellowships" className="text-background/70 hover:text-primary transition-colors">
+                Fellowships
               </Link>
             </li>
             <li>
