@@ -3,47 +3,50 @@ import { Input } from "@/components/ui/input";
 
 export default function Subscribe() {
   return (
-    <section className="py-24 bg-foreground text-background relative overflow-hidden">
+    <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+        <div className="absolute -top-[50%] -left-[10%] w-[50%] h-[200%] bg-white rotate-12 transform origin-center"></div>
+      </div>
+
       <div className="container relative z-10">
-        <div className="max-w-5xl mx-auto border-4 border-background p-8 md:p-16 relative">
-          <div className="absolute top-0 left-0 bg-primary text-foreground px-4 py-1 font-mono font-bold text-sm uppercase transform -translate-y-1/2 translate-x-8 border-2 border-background">
-            Signal_Input
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="font-serif text-5xl font-bold leading-none uppercase">
-                JOIN THE <span className="text-primary">CONVERSATION</span>
-              </h2>
-              <p className="text-lg font-mono leading-relaxed border-l-4 border-primary pl-6">
-                Subscribe to our newsletter. Receive updates. Engage in discourse. No spam.
+        <div className="max-w-4xl mx-auto bg-background text-foreground rounded-sm shadow-2xl p-8 md:p-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-serif text-3xl font-bold mb-4">Join the Conversation</h2>
+              <p className="text-muted-foreground mb-6">
+                Subscribe to our newsletter to receive updates on upcoming events, recent journal publications, and opportunities for fellowship.
               </p>
-              <div className="flex items-center gap-3 text-sm font-bold font-mono bg-background/10 p-4 border border-background">
-                <span className="flex h-3 w-3 bg-primary animate-pulse"></span>
-                <span className="uppercase tracking-widest">Status: Active // Weekly Updates</span>
+              <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                <span className="flex h-2 w-2 rounded-full bg-primary"></span>
+                <span>Weekly updates during term time</span>
               </div>
             </div>
 
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="first-name" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">First Name</label>
-                  <Input id="first-name" placeholder="IMMANUEL" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
+                  <label htmlFor="first-name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">First Name</label>
+                  <Input id="first-name" placeholder="Immanuel" className="bg-secondary/50 border-border focus:border-primary" />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="last-name" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Last Name</label>
-                  <Input id="last-name" placeholder="KANT" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
+                  <label htmlFor="last-name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Last Name</label>
+                  <Input id="last-name" placeholder="Kant" className="bg-secondary/50 border-border focus:border-primary" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Email Address</label>
-                <Input id="email" type="email" placeholder="IKANT@PRINCETON.EDU" className="bg-transparent border-2 border-background text-background placeholder:text-background/30 focus:border-primary focus:ring-0 h-12 rounded-none font-mono" />
+                <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email Address</label>
+                <Input id="email" type="email" placeholder="ikant@princeton.edu" className="bg-secondary/50 border-border focus:border-primary" />
               </div>
 
-              <Button type="submit" className="w-full bg-primary text-foreground hover:bg-background hover:text-foreground h-14 text-lg font-bold rounded-none border-2 border-transparent hover:border-primary transition-all mt-4 uppercase font-mono">
-                [ Initiate_Subscription ]
+              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-medium mt-2">
+                SUBSCRIBE
               </Button>
+              
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </form>
           </div>
         </div>

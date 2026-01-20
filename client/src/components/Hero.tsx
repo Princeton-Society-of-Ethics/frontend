@@ -3,55 +3,72 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background text-foreground border-b-4 border-foreground">
-      {/* Brutalist Grid Background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-foreground text-background">
+      {/* Abstract Background Pattern */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
 
-      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch border-x-4 border-foreground bg-background">
-        <div className="space-y-12 p-12 border-b-4 lg:border-b-0 lg:border-r-4 border-foreground flex flex-col justify-center">
-          <div className="inline-block bg-foreground text-background px-4 py-2 transform -rotate-2 w-fit">
-            <span className="font-serif text-sm font-bold tracking-widest uppercase">
-              EST. 2004 // PRINCETON
+      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8">
+          <div className="inline-block px-3 py-1 border border-primary/30 rounded-full">
+            <span className="text-primary text-sm font-medium tracking-wider uppercase">
+              Est. 2004
             </span>
           </div>
           
-          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-none tracking-tighter uppercase">
-            WHAT DO WE OWE<br/>
-            <span className="bg-primary text-foreground px-2">TO EACH OTHER?</span>
+          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+            What do we owe <br/>
+            <span className="text-primary italic">to each other?</span>
           </h1>
           
-          <p className="text-xl font-mono border-l-4 border-primary pl-6 py-2 max-w-md">
-            The Princeton Undergraduate Society of Ethics: Rigorous inquiry. Moral reflection. No compromise.
+          <p className="text-lg md:text-xl text-background/80 max-w-xl leading-relaxed font-light">
+            The Princeton Undergraduate Society of Ethics is a student-run organization dedicated to fostering rigorous ethical inquiry and moral reflection.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-0 border-4 border-foreground w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="flex flex-wrap gap-4 pt-4">
             <Link href="/initiatives">
-              <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 rounded-none px-8 h-16 text-lg font-bold border-r-4 border-foreground">
-                EXPLORE INITIATIVES
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-14 text-lg font-serif">
+                Explore Initiatives
               </Button>
             </Link>
             <Link href="/about">
-              <Button variant="ghost" size="lg" className="bg-background text-foreground hover:bg-foreground hover:text-background rounded-none px-8 h-16 text-lg font-bold">
-                OUR MISSION
+              <Button variant="outline" size="lg" className="border-background/30 text-background hover:bg-background/10 hover:text-background rounded-sm px-8 h-14 text-lg font-serif">
+                Our Mission
               </Button>
             </Link>
           </div>
         </div>
 
-        <div className="relative hidden lg:flex flex-col">
-          <div className="flex-1 bg-foreground text-background p-12 flex items-center justify-center border-b-4 border-foreground">
-             <img 
-              src="/logo.svg" 
-              alt="The Thinker" 
-              className="h-64 w-64 object-contain invert brightness-0"
-            />
+        <div className="relative hidden lg:block h-[600px] w-full">
+          {/* Placeholder for a high-quality image - using a generated style div for now */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-sm overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center">
+               <img 
+                src="/logo.svg" 
+                alt="The Thinker" 
+                className="h-[80%] w-[80%] object-contain opacity-20 invert brightness-0 mix-blend-overlay"
+              />
+            </div>
           </div>
-          <div className="flex-1 bg-primary p-12 flex flex-col justify-center relative overflow-hidden">
-            <p className="font-serif text-4xl font-bold leading-tight relative z-10">
-              "THE UNEXAMINED LIFE IS NOT WORTH LIVING."
-            </p>
-            <p className="font-mono text-sm mt-4 font-bold uppercase tracking-widest relative z-10">— SOCRATES</p>
-            <div className="absolute -bottom-10 -right-10 text-9xl font-serif font-bold opacity-20 rotate-12">?</div>
+          
+          {/* Floating Card 1 */}
+          <div className="absolute top-20 right-10 bg-background text-foreground p-6 rounded-sm shadow-xl max-w-xs border-l-4 border-primary">
+            <p className="font-serif italic text-lg mb-2">"The unexamined life is not worth living."</p>
+            <p className="text-sm text-muted-foreground font-medium">— Socrates</p>
+          </div>
+
+          {/* Floating Card 2 */}
+          <div className="absolute bottom-20 left-10 bg-background text-foreground p-6 rounded-sm shadow-xl max-w-xs border-l-4 border-primary">
+            <p className="font-serif italic text-lg mb-2">"Ethics is knowing the difference between what you have a right to do and what is right to do."</p>
+            <p className="text-sm text-muted-foreground font-medium">— Potter Stewart</p>
           </div>
         </div>
       </div>

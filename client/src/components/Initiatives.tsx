@@ -26,43 +26,35 @@ export default function Initiatives() {
   ];
 
   return (
-    <section className="py-24 bg-background border-b-4 border-foreground">
+    <section className="py-24 bg-secondary/30">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 border-b-4 border-foreground pb-8">
-          <div className="max-w-3xl">
-            <span className="bg-foreground text-background px-2 py-1 font-mono font-bold uppercase text-xs mb-4 inline-block">
-              CORE_OPERATIONS
-            </span>
-            <h2 className="font-serif text-5xl md:text-6xl font-bold text-foreground leading-none uppercase">
-              THEORY INTO <span className="text-primary underline decoration-4 underline-offset-4">PRACTICE</span>
-            </h2>
-          </div>
-          <Link href="/initiatives">
-            <Button variant="outline" className="rounded-none border-4 border-foreground px-8 h-14 font-mono font-bold hover:bg-foreground hover:text-background uppercase">
-              [ View All ]
-            </Button>
-          </Link>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-serif text-4xl font-bold mb-6 text-foreground">Our Initiatives</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We translate ethical theory into practice through three core pillars of engagement, 
+            fostering a community of rigorous debate and intellectual friendship.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {initiatives.map((item, index) => (
-            <Card key={index} className={`border-none rounded-none bg-background p-8 group hover:bg-primary transition-colors duration-0 ${index !== initiatives.length - 1 ? 'md:border-r-4 border-b-4 md:border-b-0 border-foreground' : ''}`}>
-              <CardHeader className="p-0 mb-6">
-                <div className="mb-6 text-foreground group-hover:text-background transition-colors">
+            <Card key={index} className="border-none shadow-md hover:shadow-xl transition-all duration-300 group bg-background">
+              <CardHeader className="pt-8 pb-4">
+                <div className="mb-4 p-3 bg-primary/10 w-fit rounded-sm group-hover:bg-primary/20 transition-colors">
                   {item.icon}
                 </div>
-                <CardTitle className="font-serif text-3xl font-bold uppercase group-hover:text-background">{item.title}</CardTitle>
+                <CardTitle className="font-serif text-2xl">{item.title}</CardTitle>
               </CardHeader>
-              <CardContent className="p-0 mb-8">
-                <CardDescription className="text-base font-mono text-foreground leading-relaxed group-hover:text-background">
+              <CardContent>
+                <CardDescription className="text-base leading-relaxed">
                   {item.description}
                 </CardDescription>
               </CardContent>
-              <CardFooter className="p-0">
+              <CardFooter className="pt-4">
                 <Link href={item.link}>
-                  <div className="flex items-center text-foreground font-bold text-sm uppercase tracking-widest border-b-2 border-foreground pb-1 group-hover:text-background group-hover:border-background cursor-pointer">
-                    ACCESS_MODULE <ArrowRight className="ml-2 h-4 w-4" />
-                  </div>
+                  <Button variant="ghost" className="p-0 hover:bg-transparent text-primary hover:text-primary/80 font-medium group-hover:translate-x-1 transition-all">
+                    LEARN MORE <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </Link>
               </CardFooter>
             </Card>
