@@ -3,28 +3,7 @@ import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
 
 export default function AboutPage() {
-  const teamMembers = [
-    {
-      name: "Sarah Chen",
-      role: "President",
-      bio: "Senior majoring in Philosophy and Computer Science"
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Vice President",
-      bio: "Junior majoring in Public Policy and Ethics"
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Secretary",
-      bio: "Senior majoring in Philosophy"
-    },
-    {
-      name: "David Park",
-      role: "Treasurer",
-      bio: "Junior majoring in Economics and Philosophy"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -105,34 +84,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team Section */}
-      <section className="py-24 bg-background">
-        <div className="container">
-          <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block">Leadership</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">
-              Meet Our Team
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-primary/20 rounded-full mb-6"></div>
-                <h3 className="font-serif text-xl font-bold text-foreground mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-medium text-sm mb-4">
-                  {member.role}
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Values Section */}
       <section className="py-24 bg-secondary/20 border-t border-border">

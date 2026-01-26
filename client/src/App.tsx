@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import InitiativesPage from "./pages/InitiativesPage";
 import MagazinePage from "./pages/MagazinePage";
 import JoinPage from "./pages/JoinPage";
+import TeamPage from "./pages/TeamPage";
 
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
       <Route path={"/journal"} component={MagazinePage} />
       <Route path={"/magazine"} component={MagazinePage} />
       <Route path={"/join"} component={JoinPage} />
+      <Route path={"/team"} component={TeamPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

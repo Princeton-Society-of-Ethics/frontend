@@ -29,8 +29,8 @@ export default function DynamicNavigation() {
   const navItems = [
     { label: "ABOUT", href: "/about" },
     { label: "INITIATIVES", href: "/initiatives" },
-    { label: "EVENTS", href: "/events" },
-    { label: "JOURNAL", href: "/journal" },
+    { label: "MAGAZINE", href: "/journal" },
+    { label: "TEAM", href: "/team" },
     { label: "JOIN US", href: "/join" }
   ];
 
@@ -99,6 +99,11 @@ export default function DynamicNavigation() {
             <Link href="/journal">
               <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
                 MAGAZINE
+              </span>
+            </Link>
+            <Link href="/team">
+              <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                TEAM
               </span>
             </Link>
             <Link href="/join">
