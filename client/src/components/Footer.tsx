@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-2 mb-6">
             <img 
-              src="/Princeton-SocietyofEthics-logo.png" 
+              src="/images/logo.png" 
               alt="Princeton Ethics Society Logo" 
               className="h-12 w-12 object-contain"
             />
