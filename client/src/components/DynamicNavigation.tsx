@@ -24,16 +24,48 @@ export default function DynamicNavigation() {
     }
   }, [isMenuOpen]);
 
-  const navItems = [
-    { label: "ABOUT", href: "/about" },
-    { label: "INITIATIVES", href: "/initiatives" },
-    { label: "MAGAZINE", href: "/journal" },
-    { label: "TEAM", href: "/team" },
-    { label: "JOIN US", href: "/join" }
-  ];
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
+      <style>{`
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes slideInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .menu-item-0 { animation: slideInLeft 0.6s ease-out 0.1s both; }
+        .menu-item-1 { animation: slideInLeft 0.6s ease-out 0.2s both; }
+        .menu-item-2 { animation: slideInLeft 0.6s ease-out 0.3s both; }
+        .menu-item-3 { animation: slideInLeft 0.6s ease-out 0.4s both; }
+        .menu-item-4 { animation: slideInLeft 0.6s ease-out 0.5s both; }
+      `}</style>
+
       {/* Fixed Navigation Bar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
@@ -45,7 +77,7 @@ export default function DynamicNavigation() {
         <div className={`flex items-center justify-between px-4 md:px-8 transition-all duration-500 ${
           isScrolled ? "h-20" : "h-32"
         }`}>
-          {/* Logo and Title - Always visible */}
+          {/* Logo and Title */}
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
               <img
@@ -108,7 +140,7 @@ export default function DynamicNavigation() {
               </Link>
             </div>
 
-            {/* Hamburger Menu Button - Always visible */}
+            {/* Hamburger Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 flex-shrink-0 ${
@@ -135,9 +167,10 @@ export default function DynamicNavigation() {
       {/* Full-Page Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-30">
-          {/* Backdrop with animation */}
+          {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fadeIn"
+            className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+            style={{ animation: "fadeIn 0.5s ease-out" }}
             onClick={() => setIsMenuOpen(false)}
           />
 
@@ -145,32 +178,60 @@ export default function DynamicNavigation() {
           <div className="absolute inset-0 flex overflow-hidden">
             {/* Left Side - Menu Items */}
             <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20 relative z-10">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-white animate-slideInDown">
+              <h2 
+                className="text-4xl md:text-5xl font-serif font-bold mb-12 text-white"
+                style={{ animation: "slideInDown 0.6s ease-out" }}
+              >
                 Menu
               </h2>
               <nav className="space-y-8">
-                {navItems.map((item, index) => (
-                  <Link key={item.href} href={item.href}>
-                    <div
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
-                      style={{
-                        animation: `slideInLeft 0.6s ease-out ${(index + 1) * 0.1}s both`
-                      }}
-                    >
-                      {item.label}
-                    </div>
-                  </Link>
-                ))}
+                <Link href="/about">
+                  <div
+                    onClick={handleMenuItemClick}
+                    className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
+                  >
+                    <span className="menu-item-0 block">ABOUT</span>
+                  </div>
+                </Link>
+                <Link href="/initiatives">
+                  <div
+                    onClick={handleMenuItemClick}
+                    className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
+                  >
+                    <span className="menu-item-1 block">INITIATIVES</span>
+                  </div>
+                </Link>
+                <Link href="/journal">
+                  <div
+                    onClick={handleMenuItemClick}
+                    className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
+                  >
+                    <span className="menu-item-2 block">MAGAZINE</span>
+                  </div>
+                </Link>
+                <Link href="/team">
+                  <div
+                    onClick={handleMenuItemClick}
+                    className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
+                  >
+                    <span className="menu-item-3 block">TEAM</span>
+                  </div>
+                </Link>
+                <Link href="/join">
+                  <div
+                    onClick={handleMenuItemClick}
+                    className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
+                  >
+                    <span className="menu-item-4 block">JOIN US</span>
+                  </div>
+                </Link>
               </nav>
             </div>
 
             {/* Right Side - Email Subscription */}
             <div 
               className="hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 bg-foreground/10 backdrop-blur-sm relative z-10"
-              style={{
-                animation: `fadeIn 0.6s ease-out 0.2s both`
-              }}
+              style={{ animation: "fadeIn 0.6s ease-out 0.2s both" }}
             >
               <div className="max-w-md">
                 <h3 className="text-3xl font-serif font-bold mb-4 text-white">
@@ -193,43 +254,6 @@ export default function DynamicNavigation() {
               </div>
             </div>
           </div>
-
-          <style>{`
-            @keyframes slideInLeft {
-              from {
-                opacity: 0;
-                transform: translateX(-30px);
-              }
-              to {
-                opacity: 1;
-                transform: translateX(0);
-              }
-            }
-            @keyframes slideInDown {
-              from {
-                opacity: 0;
-                transform: translateY(-20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-            @keyframes fadeIn {
-              from {
-                opacity: 0;
-              }
-              to {
-                opacity: 1;
-              }
-            }
-            .animate-fadeIn {
-              animation: fadeIn 0.5s ease-out;
-            }
-            .animate-slideInDown {
-              animation: slideInDown 0.6s ease-out;
-            }
-          `}</style>
         </div>
       )}
     </>
