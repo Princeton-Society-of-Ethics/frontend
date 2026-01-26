@@ -24,12 +24,12 @@ export default function DynamicNavigation() {
 
   return (
     <>
-      {/* Hero Section Navigation - Blended */}
+      {/* Fixed Navigation Bar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-background border-b border-border shadow-md"
-            : "bg-transparent"
+            : "bg-transparent md:bg-transparent"
         }`}
       >
         <div className="container flex items-center justify-between h-20 px-4 md:px-0">
@@ -43,7 +43,7 @@ export default function DynamicNavigation() {
                   isScrolled ? "h-10 w-10" : "h-12 w-12"
                 } ${isScrolled ? "" : "drop-shadow-lg"}`}
               />
-              <div className="flex flex-col">
+              <div className="hidden sm:flex flex-col">
                 <span
                   className={`font-serif font-semibold leading-none tracking-tight transition-all duration-500 ${
                     isScrolled
@@ -66,9 +66,9 @@ export default function DynamicNavigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Only visible when scrolled */}
+          {/* Desktop Navigation - Only visible when scrolled and on larger screens */}
           <div
-            className={`hidden md:flex items-center gap-8 transition-all duration-500 ${
+            className={`hidden lg:flex items-center gap-8 transition-all duration-500 ${
               isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
@@ -86,10 +86,10 @@ export default function DynamicNavigation() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button - Hamburger Icon with 3 lines */}
+          {/* Mobile Menu Button - Always visible on mobile */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
+            className={`lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
               isScrolled 
                 ? "text-foreground" 
                 : "text-white drop-shadow-lg"
@@ -117,13 +117,13 @@ export default function DynamicNavigation() {
           </button>
         </div>
 
-        {/* Mobile Menu - Dropdown */}
+        {/* Mobile Menu - Dropdown (Always can be opened) */}
         {isMobileMenuOpen && (
           <div
-            className={`md:hidden transition-all duration-300 ${
+            className={`lg:hidden transition-all duration-300 ${
               isScrolled
                 ? "bg-background border-b border-border"
-                : "bg-foreground/90 backdrop-blur-md"
+                : "bg-foreground/95 backdrop-blur-md"
             }`}
           >
             <div className="container py-4 space-y-4">
