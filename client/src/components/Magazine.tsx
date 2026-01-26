@@ -12,7 +12,7 @@ export default function Magazine() {
       date: "January 2025",
       excerpt: "Exploring the moral implications of AI development and deployment in society.",
       category: "Technology",
-      link: "/journal/ai-ethics"
+      link: "/encompass/ai-ethics"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function Magazine() {
       date: "December 2024",
       excerpt: "How intergenerational justice shapes our response to environmental crises.",
       category: "Environment",
-      link: "/journal/climate-justice"
+      link: "/encompass/climate-justice"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function Magazine() {
       date: "November 2024",
       excerpt: "Understanding how admitting what we don't know strengthens ethical reasoning.",
       category: "Philosophy",
-      link: "/journal/intellectual-humility"
+      link: "/encompass/intellectual-humility"
     }
   ];
 
@@ -39,17 +39,17 @@ export default function Magazine() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-primary font-serif italic text-sm mb-2 block">Featured</span>
+            <span className="text-primary font-serif italic text-sm mb-2 block">Our Publication</span>
             <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
-              The Ethics <span className="text-primary">Quarterly</span>
+              <span className="text-primary">Encompass</span>
             </h2>
             <p className="text-muted-foreground text-lg mt-4 font-light max-w-xl">
-              A student-led publication exploring contemporary ethical questions through rigorous analysis and diverse perspectives.
+              A student-led magazine exploring contemporary ethical questions through rigorous analysis and diverse perspectives.
             </p>
           </div>
-          <Link href="/journal">
+          <Link href="/encompass">
             <Button variant="outline" className="rounded-sm border-2 px-6 h-12 font-serif">
-              View All Articles
+              View All Issues
             </Button>
           </Link>
         </div>

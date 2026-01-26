@@ -26,13 +26,13 @@ export default function Initiatives() {
   ];
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-24 bg-secondary/30 border-t border-border/50">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-4xl font-bold mb-6 text-foreground">Our Initiatives</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            We translate ethical theory into practice through three core pillars of engagement, 
-            fostering a community of rigorous debate and intellectual friendship.
+        <div className="mb-16">
+          <span className="text-primary font-serif italic text-sm mb-2 block">Our Work</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">Our <span className="text-primary">Initiatives</span></h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mt-4 max-w-2xl">
+            We translate ethical theory into practice through three core pillars of engagement, fostering a community of rigorous debate and intellectual friendship.
           </p>
         </div>
 
