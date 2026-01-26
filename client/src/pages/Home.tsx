@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Initiatives from "@/components/Initiatives";
 import AboutSection from "@/components/AboutSection";
+import Magazine from "@/components/Magazine";
 import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Initiatives />
         <AboutSection />
+        <Magazine />
         <Subscribe />
       </main>
       

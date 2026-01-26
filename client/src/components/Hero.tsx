@@ -18,12 +18,6 @@ export default function Hero() {
 
       <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
-          <div className="inline-block px-3 py-1 border border-primary/30 rounded-full">
-            <span className="text-primary text-sm font-medium tracking-wider uppercase">
-              Est. 2004
-            </span>
-          </div>
-          
           <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             What do we owe <br/>
             <span className="text-primary italic">to each other?</span>
