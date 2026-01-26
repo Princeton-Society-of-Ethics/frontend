@@ -62,7 +62,7 @@ export default function DynamicNavigation() {
                 alt="Princeton Ethics Society Logo"
                 className={`object-contain transition-all duration-500 ${
                   isScrolled ? "h-14 w-14" : "h-16 w-16"
-                } ${isScrolled ? "" : "drop-shadow-lg"}`}
+                } ${isScrolled ? "" : "drop-shadow-lg brightness-0 invert"}`}
               />
               <div className="hidden sm:flex flex-col">
                 <span
