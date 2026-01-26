@@ -3,13 +3,13 @@ import { Link } from "wouter";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-secondary/20 border-t-4 border-primary/30">
+    <section className="py-24 bg-amber-900 border-t-4 border-amber-900">
       <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="order-2 lg:order-1 relative">
-          <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
-          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+          <div className="absolute -top-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
           
-          <div className="relative bg-muted aspect-[4/5] rounded-sm overflow-hidden shadow-lg border-l-4 border-primary">
+          <div className="relative bg-muted aspect-[4/5] rounded-sm overflow-hidden shadow-lg border-l-4 border-white/30">
              {/* Placeholder for image */}
              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
              <img 
@@ -25,14 +25,14 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="order-1 lg:order-2 space-y-8">
+          <div className="order-1 lg:order-2 space-y-8">
           <div className="mb-4">
-            <span className="text-primary font-serif italic text-sm mb-2 block">About Us</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
-              Cultivating <span className="text-primary">Moral Leadership</span>
+            <span className="text-white/70 font-serif italic text-sm mb-2 block">About Us</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              Cultivating <span className="text-white/90">Moral Leadership</span>
             </h2>
           </div>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <div className="space-y-6 text-lg text-white/80 leading-relaxed">
             <p>
               Founded in 2004, the Princeton Undergraduate Society of Ethics (PUSE) serves as the university's premier forum for ethical discourse.
             </p>
@@ -46,7 +46,7 @@ export default function AboutSection() {
 
           <div className="pt-4">
             <Link href="/about">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-8 h-12 text-base font-medium transition-all">
+              <Button className="bg-white text-amber-900 hover:bg-white/90 rounded-sm px-8 h-12 text-base font-medium transition-all">
                 READ OUR FULL HISTORY
               </Button>
             </Link>
