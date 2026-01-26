@@ -26,10 +26,10 @@ export default function Initiatives() {
   ];
 
   return (
-    <section className="py-24 bg-secondary/30 border-t border-border/50">
+    <section className="py-24 bg-background border-t-4 border-primary">
       <div className="container">
         <div className="mb-16">
-          <span className="text-primary font-serif italic text-sm mb-2 block">Our Work</span>
+          <span className="text-primary font-serif italic text-sm mb-2 block">What We Do</span>
           <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">Our <span className="text-primary">Initiatives</span></h2>
           <p className="text-lg text-muted-foreground leading-relaxed mt-4 max-w-2xl">
             We translate ethical theory into practice through three core pillars of engagement, fostering a community of rigorous debate and intellectual friendship.
@@ -38,12 +38,12 @@ export default function Initiatives() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {initiatives.map((item, index) => (
-            <Card key={index} className="border-none shadow-md hover:shadow-xl transition-all duration-300 group bg-background">
+            <Card key={index} className="border-l-4 border-primary shadow-md hover:shadow-xl transition-all duration-300 group bg-background hover:bg-primary/5 rounded-sm">
               <CardHeader className="pt-8 pb-4">
-                <div className="mb-4 p-3 bg-primary/10 w-fit rounded-sm group-hover:bg-primary/20 transition-colors">
+                <div className="mb-4 p-3 bg-primary/20 w-fit rounded-sm group-hover:bg-primary/30 transition-colors">
                   {item.icon}
                 </div>
-                <CardTitle className="font-serif text-2xl">{item.title}</CardTitle>
+                <CardTitle className="font-serif text-2xl text-foreground">{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base leading-relaxed">

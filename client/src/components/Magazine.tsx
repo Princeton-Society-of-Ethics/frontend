@@ -35,13 +35,13 @@ export default function Magazine() {
   ];
 
   return (
-    <section className="py-24 bg-background border-t border-border">
+    <section className="py-24 bg-background border-t-4 border-primary/20">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-primary font-serif italic text-sm mb-2 block">Our Publication</span>
+            <span className="text-primary font-serif italic text-sm mb-2 block">Featured Publication</span>
             <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
-              <span className="text-primary">Encompass</span>
+              <span className="text-primary">Encompass</span> Magazine
             </h2>
             <p className="text-muted-foreground text-lg mt-4 font-light max-w-xl">
               A student-led magazine exploring contemporary ethical questions through rigorous analysis and diverse perspectives.
@@ -56,20 +56,20 @@ export default function Magazine() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {articles.map((article) => (
-            <Card key={article.id} className="border-none shadow-sm hover:shadow-lg transition-shadow duration-500 group bg-background rounded-sm overflow-hidden">
+            <Card key={article.id} className="border-t-4 border-primary shadow-sm hover:shadow-lg transition-all duration-500 group bg-background hover:bg-primary/5 rounded-sm overflow-hidden">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-sm">
                     {article.category}
                   </span>
                   <span className="text-xs text-muted-foreground font-medium">
                     {article.date}
                   </span>
                 </div>
-                <CardTitle className="font-serif text-xl font-bold leading-snug">
+                <CardTitle className="font-serif text-xl font-bold leading-snug text-foreground">
                   {article.title}
                 </CardTitle>
-                <CardDescription className="text-sm font-medium text-foreground/60">
+                <CardDescription className="text-sm font-medium text-primary/70">
                   By {article.author}
                 </CardDescription>
               </CardHeader>
