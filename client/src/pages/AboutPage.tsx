@@ -108,7 +108,7 @@ export default function AboutPage() {
                 <div className="w-1/2"></div>
                 <div className="w-1/2 text-left pl-8">
                   <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <h3 className="font-serif text-3xl font-bold text-primary mb-2\">2024</h3>
+                    <h3 className="font-serif text-3xl font-bold text-primary mb-2">2024</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       Celebrated 20 years with 300+ active members and a thriving community of student leaders.
                     </p>
@@ -141,80 +141,80 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Photo Gallery Section */}
-      <section className="py-24 bg-background border-t border-border animate-fade-in-up">
+      {/* Photo Gallery Section - Masonry Layout */}
+      <section className="py-32 bg-gradient-to-b from-background to-secondary/10 animate-fade-in-up">
         <div className="container">
-          <div className="mb-16 text-center">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Our Community</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
-              Moments from Our Events
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Gallery Item 1 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-3">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🎤</div>
-                  <p className="text-foreground/70 font-medium">Speaker Series 2024</p>
-                </div>
+          {/* Masonry Gallery Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-max">
+            {/* Large featured image - spans 2 cols */}
+            <div className="md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-1">
+              <img 
+                src="/images/gallery-1.jpg" 
+                alt="Discussion Seminar" 
+                className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-white font-serif text-lg font-bold">Discussion Seminar</p>
               </div>
             </div>
             
-            {/* Gallery Item 2 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-4">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">📚</div>
-                  <p className="text-foreground/70 font-medium">Encompass Launch</p>
-                </div>
+            {/* Medium image */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-2">
+              <img 
+                src="/images/gallery-2.jpg" 
+                alt="Speaker Series" 
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white font-serif text-sm font-bold">Speaker Series</p>
               </div>
             </div>
             
-            {/* Gallery Item 3 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-5">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">💬</div>
-                  <p className="text-foreground/70 font-medium">Discussion Seminar</p>
-                </div>
+            {/* Medium image */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-3">
+              <img 
+                src="/images/gallery-3.jpg" 
+                alt="Research Collaboration" 
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white font-serif text-sm font-bold">Research</p>
               </div>
             </div>
             
-            {/* Gallery Item 4 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-6">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🤝</div>
-                  <p className="text-foreground/70 font-medium">Mentorship Program</p>
-                </div>
+            {/* Small image */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-4">
+              <img 
+                src="/images/gallery-4.jpg" 
+                alt="Community Event" 
+                className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white font-serif text-xs font-bold">Community</p>
               </div>
             </div>
             
-            {/* Gallery Item 5 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-7">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🌍</div>
-                  <p className="text-foreground/70 font-medium">Ethics in Action</p>
-                </div>
+            {/* Large featured image - spans 2 rows */}
+            <div className="md:col-span-1 lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-5">
+              <img 
+                src="/images/gallery-5.jpg" 
+                alt="Publication Work" 
+                className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-white font-serif text-lg font-bold">Encompass Magazine</p>
               </div>
             </div>
             
-            {/* Gallery Item 6 */}
-            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🔬</div>
-                  <p className="text-foreground/70 font-medium">Research Collab</p>
-                </div>
+            {/* Small image */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-6">
+              <img 
+                src="/images/gallery-3.jpg" 
+                alt="Mentorship" 
+                className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white font-serif text-xs font-bold">Mentorship</p>
               </div>
             </div>
           </div>
