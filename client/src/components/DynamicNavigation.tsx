@@ -58,11 +58,11 @@ export default function DynamicNavigation() {
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
               <img
-                src="/images/logo.png"
+                src={isScrolled ? "/images/logo.png" : "/images/logo-white.png"}
                 alt="Princeton Ethics Society Logo"
                 className={`object-contain transition-all duration-500 ${
                   isScrolled ? "h-14 w-14" : "h-16 w-16"
-                } ${isScrolled ? "" : "drop-shadow-lg brightness-0 invert"}`}
+                } ${isScrolled ? "" : "drop-shadow-lg"}`}
               />
               <div className="hidden sm:flex flex-col">
                 <span
