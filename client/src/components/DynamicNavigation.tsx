@@ -30,10 +30,10 @@ export default function DynamicNavigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-background border-b border-border shadow-md"
-            : "bg-transparent backdrop-blur-0"
+            : "bg-transparent"
         }`}
       >
-        <div className="container flex items-center justify-between h-20">
+        <div className="container flex items-center justify-between h-20 px-4 md:px-0">
           {/* Logo and Title - Always visible */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
@@ -42,7 +42,7 @@ export default function DynamicNavigation() {
                 alt="Princeton Ethics Society Logo"
                 className={`object-contain transition-all duration-500 ${
                   isScrolled ? "h-10 w-10" : "h-12 w-12"
-                } ${isScrolled ? "" : "brightness-200 invert"}`}
+                } ${isScrolled ? "" : "drop-shadow-lg"}`}
               />
               <div className="flex flex-col">
                 <span
@@ -90,15 +90,17 @@ export default function DynamicNavigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden flex items-center justify-center w-10 h-10 rounded transition-colors z-50 ${
-              isScrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-background/10"
+            className={`md:hidden flex items-center justify-center w-12 h-12 rounded transition-all z-50 ${
+              isScrolled 
+                ? "text-foreground hover:bg-muted" 
+                : "text-white drop-shadow-lg hover:opacity-80"
             }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-7 w-7" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-7 w-7" />
             )}
           </button>
         </div>
