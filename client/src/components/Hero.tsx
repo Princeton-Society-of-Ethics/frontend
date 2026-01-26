@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground text-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground text-background pt-32">
       {/* Abstract Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

@@ -41,7 +41,9 @@ export default function DynamicNavigation() {
             : "bg-transparent"
         }`}
       >
-        <div className="container flex items-center justify-between h-24 px-4 md:px-0">
+        <div className={`container flex items-center justify-between transition-all duration-500 px-4 md:px-0 ${
+          isScrolled ? "h-20" : "h-32"
+        }`}>
           {/* Logo and Title - Always visible */}
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
@@ -109,79 +111,103 @@ export default function DynamicNavigation() {
 
       {/* Full-Page Menu Overlay */}
       {isMenuOpen && (
-        <div
-          className={`fixed inset-0 z-30 transition-all duration-500 ${
-            isScrolled
-              ? "bg-background"
-              : "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
-          }`}
-          onClick={() => setIsMenuOpen(false)}
-        >
+        <>
+          {/* Backdrop with fade animation */}
           <div
-            className="h-full flex"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Left Side - Menu Items */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20">
-              <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 ${
-                isScrolled ? "text-foreground" : "text-white"
-              }`}>
-                Menu
-              </h2>
-              <nav className="space-y-6">
-                {navItems.map((item) => (
-                  <Link key={item.href} href={item.href}>
-                    <div
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`text-2xl md:text-3xl font-serif font-light transition-colors cursor-pointer hover:text-primary ${
-                        isScrolled
-                          ? "text-foreground"
-                          : "text-white"
-                      }`}
-                    >
-                      {item.label}
-                    </div>
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            {/* Right Side - Email Subscription */}
-            <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 ${
+            className={`fixed inset-0 z-30 transition-opacity duration-500 ${
+              isMenuOpen ? "opacity-100" : "opacity-0"
+            } ${
               isScrolled
-                ? "bg-muted"
-                : "bg-foreground/10 backdrop-blur-sm"
-            }`}>
-              <div className="max-w-md">
-                <h3 className={`text-3xl font-serif font-bold mb-4 ${
+                ? "bg-background"
+                : "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+            }`}
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Menu Content with slide animation */}
+          <div
+            className={`fixed inset-0 z-30 pointer-events-none transition-all duration-500`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <div
+              className={`h-full flex pointer-events-auto transition-all duration-500 ${
+                isMenuOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Left Side - Menu Items with staggered fade-in */}
+              <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20">
+                <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 transition-all duration-700 ${
+                  isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                } ${
                   isScrolled ? "text-foreground" : "text-white"
                 }`}>
-                  Stay Connected
-                </h3>
-                <p className={`text-lg mb-8 font-light ${
-                  isScrolled ? "text-foreground/70" : "text-white/80"
-                }`}>
-                  Subscribe to our newsletter for updates on events, articles, and initiatives.
-                </p>
-                
-                <form className="space-y-4">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className={`w-full px-4 py-3 rounded-sm border-2 transition-colors ${
-                      isScrolled
-                        ? "border-border bg-background text-foreground placeholder-foreground/50"
-                        : "border-white/30 bg-white/10 text-white placeholder-white/60"
-                    } focus:outline-none focus:border-primary`}
-                  />
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-12 text-lg font-serif">
-                    Subscribe
-                  </Button>
-                </form>
+                  Menu
+                </h2>
+                <nav className="space-y-6">
+                  {navItems.map((item, index) => (
+                    <Link key={item.href} href={item.href}>
+                      <div
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`text-2xl md:text-3xl font-serif font-light transition-all duration-500 cursor-pointer hover:text-primary ${
+                          isMenuOpen 
+                            ? "opacity-100 translate-x-0" 
+                            : "opacity-0 -translate-x-8"
+                        } ${
+                          isScrolled
+                            ? "text-foreground"
+                            : "text-white"
+                        }`}
+                        style={{
+                          transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms"
+                        }}
+                      >
+                        {item.label}
+                      </div>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Right Side - Email Subscription with fade-in */}
+              <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 transition-all duration-700 ${
+                isMenuOpen ? "opacity-100" : "opacity-0"
+              } ${
+                isScrolled
+                  ? "bg-muted"
+                  : "bg-foreground/10 backdrop-blur-sm"
+              }`}>
+                <div className="max-w-md">
+                  <h3 className={`text-3xl font-serif font-bold mb-4 ${
+                    isScrolled ? "text-foreground" : "text-white"
+                  }`}>
+                    Stay Connected
+                  </h3>
+                  <p className={`text-lg mb-8 font-light ${
+                    isScrolled ? "text-foreground/70" : "text-white/80"
+                  }`}>
+                    Subscribe to our newsletter for updates on events, articles, and initiatives.
+                  </p>
+                  
+                  <form className="space-y-4">
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      className={`w-full px-4 py-3 rounded-sm border-2 transition-colors font-serif ${
+                        isScrolled
+                          ? "border-border bg-background text-foreground placeholder-foreground/50"
+                          : "border-white/30 bg-white/10 text-white placeholder-white/60"
+                      } focus:outline-none focus:border-primary`}
+                    />
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-12 text-lg font-serif">
+                      Subscribe
+                    </Button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
