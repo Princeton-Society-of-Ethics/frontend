@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function DynamicNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,32 +15,41 @@ export default function DynamicNavigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMenuOpen]);
+
   const navItems = [
     { label: "ABOUT", href: "/about" },
     { label: "INITIATIVES", href: "/initiatives" },
     { label: "EVENTS", href: "/events" },
-    { label: "JOURNAL", href: "/journal" }
+    { label: "JOURNAL", href: "/journal" },
+    { label: "JOIN US", href: "/join" }
   ];
 
   return (
     <>
       {/* Fixed Navigation Bar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
             ? "bg-background border-b border-border shadow-md"
             : "bg-transparent"
         }`}
       >
-        <div className="container flex items-center justify-between h-20 px-4 md:px-0">
+        <div className="container flex items-center justify-between h-24 px-4 md:px-0">
           {/* Logo and Title - Always visible */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
               <img
                 src="/Princeton-SocietyofEthics-logo.png"
                 alt="Princeton Ethics Society Logo"
                 className={`object-contain transition-all duration-500 ${
-                  isScrolled ? "h-10 w-10" : "h-12 w-12"
+                  isScrolled ? "h-14 w-14" : "h-16 w-16"
                 } ${isScrolled ? "" : "drop-shadow-lg"}`}
               />
               <div className="hidden sm:flex flex-col">
@@ -68,8 +77,8 @@ export default function DynamicNavigation() {
 
           {/* Menu Button - Always visible on all devices */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`flex flex-col justify-center items-center w-14 h-14 gap-2 relative z-50 transition-all ${
               isScrolled 
                 ? "text-foreground" 
                 : "text-white drop-shadow-lg"
@@ -78,61 +87,102 @@ export default function DynamicNavigation() {
           >
             {/* Top line */}
             <span 
-              className={`block h-0.5 w-6 transition-all duration-300 ${
+              className={`block h-1 w-8 transition-all duration-300 ${
                 isScrolled ? "bg-foreground" : "bg-white"
-              } ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+              } ${isMenuOpen ? "rotate-45 translate-y-3" : ""}`}
             />
             {/* Middle line */}
             <span 
-              className={`block h-0.5 w-6 transition-all duration-300 ${
+              className={`block h-1 w-8 transition-all duration-300 ${
                 isScrolled ? "bg-foreground" : "bg-white"
-              } ${isMobileMenuOpen ? "opacity-0" : ""}`}
+              } ${isMenuOpen ? "opacity-0" : ""}`}
             />
             {/* Bottom line */}
             <span 
-              className={`block h-0.5 w-6 transition-all duration-300 ${
+              className={`block h-1 w-8 transition-all duration-300 ${
                 isScrolled ? "bg-foreground" : "bg-white"
-              } ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              } ${isMenuOpen ? "-rotate-45 -translate-y-3" : ""}`}
             />
           </button>
         </div>
+      </nav>
 
-        {/* Menu - Dropdown (Always can be opened on all devices) */}
-        {isMobileMenuOpen && (
+      {/* Full-Page Menu Overlay */}
+      {isMenuOpen && (
+        <div
+          className={`fixed inset-0 z-30 transition-all duration-500 ${
+            isScrolled
+              ? "bg-background"
+              : "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        >
           <div
-            className={`transition-all duration-300 ${
-              isScrolled
-                ? "bg-background border-b border-border"
-                : "bg-foreground/95 backdrop-blur-md"
-            }`}
+            className="h-full flex"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="container py-4 space-y-4">
-              {navItems.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <div
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm font-medium transition-colors cursor-pointer ${
+            {/* Left Side - Menu Items */}
+            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20">
+              <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 ${
+                isScrolled ? "text-foreground" : "text-white"
+              }`}>
+                Menu
+              </h2>
+              <nav className="space-y-6">
+                {navItems.map((item) => (
+                  <Link key={item.href} href={item.href}>
+                    <div
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-2xl md:text-3xl font-serif font-light transition-colors cursor-pointer hover:text-primary ${
+                        isScrolled
+                          ? "text-foreground"
+                          : "text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </div>
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Right Side - Email Subscription */}
+            <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 ${
+              isScrolled
+                ? "bg-muted"
+                : "bg-foreground/10 backdrop-blur-sm"
+            }`}>
+              <div className="max-w-md">
+                <h3 className={`text-3xl font-serif font-bold mb-4 ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}>
+                  Stay Connected
+                </h3>
+                <p className={`text-lg mb-8 font-light ${
+                  isScrolled ? "text-foreground/70" : "text-white/80"
+                }`}>
+                  Subscribe to our newsletter for updates on events, articles, and initiatives.
+                </p>
+                
+                <form className="space-y-4">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    className={`w-full px-4 py-3 rounded-sm border-2 transition-colors ${
                       isScrolled
-                        ? "text-foreground hover:text-primary"
-                        : "text-white hover:text-primary"
-                    }`}
-                  >
-                    {item.label}
-                  </div>
-                </Link>
-              ))}
-              <Link href="/join">
-                <Button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-10 text-sm font-serif"
-                >
-                  JOIN US
-                </Button>
-              </Link>
+                        ? "border-border bg-background text-foreground placeholder-foreground/50"
+                        : "border-white/30 bg-white/10 text-white placeholder-white/60"
+                    } focus:outline-none focus:border-primary`}
+                  />
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-12 text-lg font-serif">
+                    Subscribe
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </>
   );
 }
