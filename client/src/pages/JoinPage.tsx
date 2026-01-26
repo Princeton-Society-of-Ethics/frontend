@@ -75,40 +75,7 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-background animate-fade-in-up">
-        <div className="container">
-          <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Why Join</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
-              What You'll Gain
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {benefits.map((benefit, index) => {
-              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
-              return (
-              <div key={index} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-xl transition-all duration-300 ${staggerClass}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors">
-                    <span className="text-primary font-serif font-bold text-lg">{index + 1}</span>
-                  </div>
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            );
-            })
-          }
-          </div>
-        </div>
-      </section>
+
 
       {/* How to Join Section */}
       <section className="py-24 bg-gradient-to-b from-secondary/20 to-background border-t border-border animate-fade-in-up">
@@ -199,25 +166,31 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
-        <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6 stagger-item-1">
-            Ready to Join?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
-            Reach out to us with any questions or to learn more about membership. We're always excited to welcome new members to our community.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
-              Contact Us
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-8 h-12 text-base font-serif"
-            >
-              View Events
-            </Button>
+      {/* Ready to Join CTA Section */}
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-[50%] -left-[10%] w-[50%] h-[200%] bg-white rotate-12 transform origin-center"></div>
+        </div>
+
+        <div className="container relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-primary-foreground stagger-item-1">
+              Ready to Join?
+            </h2>
+            <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed stagger-item-2">
+              Reach out to us with any questions or to learn more about membership. We're always excited to welcome new members to our community.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
+              <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
+                Contact Us
+              </Button>
+              <Button 
+                className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif"
+              >
+                View Events
+              </Button>
+            </div>
           </div>
         </div>
       </section>

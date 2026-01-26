@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
@@ -140,69 +141,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
-        <div className="container max-w-4xl">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
-            Our Core Values
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="stagger-item-2">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-serif text-xl">①</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-foreground">
-                  Intellectual Rigor
-                </h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed ml-16">
-                We approach ethical questions with the seriousness and depth they deserve, drawing on philosophical traditions and contemporary scholarship.
-              </p>
-            </div>
-            
-            <div className="stagger-item-3">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-serif text-xl">②</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-foreground">
-                  Inclusive Dialogue
-                </h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed ml-16">
-                We welcome diverse perspectives and backgrounds, believing that ethical inquiry is strengthened by a multiplicity of voices.
-              </p>
-            </div>
-            
-            <div className="stagger-item-4">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-serif text-xl">③</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-foreground">
-                  Practical Application
-                </h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed ml-16">
-                We don't just theorize—we work to apply ethical frameworks to real-world challenges and contribute to positive change.
-              </p>
-            </div>
-            
-            <div className="stagger-item-5">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-serif text-xl">④</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-foreground">
-                  Community Building
-                </h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed ml-16">
-                We foster a supportive community where students feel empowered to explore difficult questions and grow as moral thinkers.
-              </p>
-            </div>
+      {/* Join Us CTA Section */}
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-[50%] -left-[10%] w-[50%] h-[200%] bg-white rotate-12 transform origin-center"></div>
+        </div>
+
+        <div className="container relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-primary-foreground stagger-item-1">
+              Ready to Join the Conversation?
+            </h2>
+            <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed stagger-item-2">
+              Whether you're a philosophy major or simply curious about ethics, there's a place for you in our community. Join us as we explore the questions that matter most.
+            </p>
+            <Link href="/join">
+              <Button className="bg-background text-primary hover:bg-background/90 px-8 h-12 text-lg font-serif rounded-sm stagger-item-3">
+                Learn More About Joining
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -105,33 +105,7 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-      {/* Impact Stats Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
-        <div className="container">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-16 text-center stagger-item-1">
-            Our Impact
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center stagger-item-2">
-              <div className="text-5xl font-serif font-bold text-primary mb-3">300+</div>
-              <p className="text-muted-foreground font-medium">Active Members</p>
-            </div>
-            <div className="text-center stagger-item-3">
-              <div className="text-5xl font-serif font-bold text-primary mb-3">20+</div>
-              <p className="text-muted-foreground font-medium">Years of Service</p>
-            </div>
-            <div className="text-center stagger-item-4">
-              <div className="text-5xl font-serif font-bold text-primary mb-3">14</div>
-              <p className="text-muted-foreground font-medium">Magazine Volumes</p>
-            </div>
-            <div className="text-center stagger-item-5">
-              <div className="text-5xl font-serif font-bold text-primary mb-3">50+</div>
-              <p className="text-muted-foreground font-medium">Annual Events</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-32 bg-gradient-to-br from-foreground to-foreground/95 text-background animate-fade-in-up">
