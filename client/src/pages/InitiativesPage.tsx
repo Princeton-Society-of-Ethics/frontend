@@ -2,45 +2,38 @@ import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-import { SpeakerIcon, MagazineIcon, DiscussionIcon, ActionIcon, MentorshipIcon, ResearchIcon } from "@/components/Icons";
 
 export default function InitiativesPage() {
   const initiatives = [
     {
       title: "Speaker Series",
       description: "Bringing leading ethicists and philosophers to Princeton for public lectures and discussions.",
-      details: "Our annual speaker series features renowned scholars, practitioners, and thought leaders who engage with students on pressing ethical questions. Past speakers include bioethicists, environmental philosophers, and experts in AI ethics.",
-      icon: SpeakerIcon
+      details: "Our annual speaker series features renowned scholars, practitioners, and thought leaders who engage with students on pressing ethical questions. Past speakers include bioethicists, environmental philosophers, and experts in AI ethics."
     },
     {
       title: "Encompass Magazine",
       description: "A student-run publication showcasing original writing on ethics, philosophy, and moral inquiry.",
-      details: "Encompass publishes peer-reviewed essays, creative writing, and research from Princeton undergraduates exploring ethical themes. We accept submissions on any topic related to ethics, from traditional philosophy to applied ethics in technology and society.",
-      icon: MagazineIcon
+      details: "Encompass publishes peer-reviewed essays, creative writing, and research from Princeton undergraduates exploring ethical themes. We accept submissions on any topic related to ethics, from traditional philosophy to applied ethics in technology and society."
     },
     {
       title: "Discussion Seminars",
       description: "Weekly facilitated discussions on contemporary ethical issues and philosophical texts.",
-      details: "Our seminars provide a space for students to engage deeply with ethical texts and current events. Topics range from classical philosophy to modern dilemmas in bioethics, environmental ethics, and social justice.",
-      icon: DiscussionIcon
+      details: "Our seminars provide a space for students to engage deeply with ethical texts and current events. Topics range from classical philosophy to modern dilemmas in bioethics, environmental ethics, and social justice."
     },
     {
       title: "Ethics in Action",
       description: "Applied ethics projects that tackle real-world problems through philosophical frameworks.",
-      details: "We collaborate with campus organizations and community partners to apply ethical analysis to pressing issues. Recent projects have focused on AI governance, climate justice, and educational equity.",
-      icon: ActionIcon
+      details: "We collaborate with campus organizations and community partners to apply ethical analysis to pressing issues. Recent projects have focused on AI governance, climate justice, and educational equity."
     },
     {
       title: "Mentorship Program",
       description: "Connecting experienced student leaders with newer members to foster intellectual growth.",
-      details: "Our mentorship program pairs experienced members with students new to ethical inquiry, providing guidance on coursework, research, and personal development. Mentors help mentees navigate ethical questions and develop leadership skills.",
-      icon: MentorshipIcon
+      details: "Our mentorship program pairs experienced members with students new to ethical inquiry, providing guidance on coursework, research, and personal development. Mentors help mentees navigate ethical questions and develop leadership skills."
     },
     {
       title: "Research Collaborations",
       description: "Supporting student-led research projects in applied ethics and moral philosophy.",
-      details: "We provide resources and mentorship for students conducting original research on ethical topics. Recent projects have explored algorithmic bias, climate ethics, and social justice frameworks.",
-      icon: ResearchIcon
+      details: "We provide resources and mentorship for students conducting original research on ethical topics. Recent projects have explored algorithmic bias, climate ethics, and social justice frameworks."
     }
   ];
 
@@ -74,18 +67,13 @@ export default function InitiativesPage() {
                   {/* Content */}
                   <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div className="space-y-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 text-primary flex-shrink-0 pt-1">
-                          <initiative.icon />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-serif text-3xl font-bold text-foreground mb-3">
-                            {initiative.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground font-medium mb-4">
-                            {initiative.description}
-                          </p>
-                        </div>
+                      <div>
+                        <h3 className="font-serif text-3xl font-bold text-foreground mb-3">
+                          {initiative.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground font-medium mb-4">
+                          {initiative.description}
+                        </p>
                       </div>
                       
                       <p className="text-muted-foreground leading-relaxed text-base">
@@ -105,10 +93,6 @@ export default function InitiativesPage() {
                   <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                     <div className="relative h-80 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 flex items-center justify-center overflow-hidden group">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      <div className="w-32 h-32 text-primary/20 group-hover:text-primary/30 transition-colors duration-500 transform group-hover:scale-110 transition-transform">
-                        <initiative.icon />
-                      </div>
-                      
                       {/* Decorative accent */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                       <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl -ml-20 -mb-20"></div>
