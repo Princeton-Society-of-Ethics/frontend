@@ -29,7 +29,7 @@ export default function DynamicNavigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-background border-b border-border shadow-md"
-            : "bg-transparent md:bg-transparent"
+            : "bg-transparent"
         }`}
       >
         <div className="container flex items-center justify-between h-20 px-4 md:px-0">
@@ -66,30 +66,10 @@ export default function DynamicNavigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Only visible when scrolled and on larger screens */}
-          <div
-            className={`hidden lg:flex items-center gap-8 transition-all duration-500 ${
-              isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                  {item.label}
-                </span>
-              </Link>
-            ))}
-            <Link href="/join">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 h-10 text-sm font-serif">
-                JOIN US
-              </Button>
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button - Always visible on mobile */}
+          {/* Menu Button - Always visible on all devices */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
+            className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
               isScrolled 
                 ? "text-foreground" 
                 : "text-white drop-shadow-lg"
@@ -117,10 +97,10 @@ export default function DynamicNavigation() {
           </button>
         </div>
 
-        {/* Mobile Menu - Dropdown (Always can be opened) */}
+        {/* Menu - Dropdown (Always can be opened on all devices) */}
         {isMobileMenuOpen && (
           <div
-            className={`lg:hidden transition-all duration-300 ${
+            className={`transition-all duration-300 ${
               isScrolled
                 ? "bg-background border-b border-border"
                 : "bg-foreground/95 backdrop-blur-md"
