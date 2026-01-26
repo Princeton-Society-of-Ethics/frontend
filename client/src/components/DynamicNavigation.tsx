@@ -30,7 +30,7 @@ export default function DynamicNavigation() {
     { label: "ABOUT", href: "/about" },
     { label: "TEAM", href: "/team" },
     { label: "INITIATIVES", href: "/initiatives" },
-    { label: "EVENTS", href: "/events", indent: true },
+    { label: "EVENTS", href: "/events" },
     { label: "MAGAZINE", href: "/journal" },
     { label: "JOIN US", href: "/join" }
   ];
@@ -189,7 +189,7 @@ export default function DynamicNavigation() {
                     <Link key={item.href} href={item.href}>
                       <div
                         onClick={() => setIsMenuOpen(false)}
-                        className={`${item.indent ? 'ml-6' : ''} text-2xl md:text-3xl font-serif font-light transition-colors duration-200 cursor-pointer hover:text-primary ${
+                        className={`text-2xl md:text-3xl font-serif font-light transition-colors duration-200 cursor-pointer hover:text-primary ${
                           isMenuAnimating 
                             ? "opacity-100 translate-x-0" 
                             : "opacity-0 -translate-x-8"
