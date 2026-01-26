@@ -82,17 +82,30 @@ export default function DynamicNavigation() {
 
           {/* Desktop Navigation - Only visible when scrolled */}
           <div
-            className={`hidden lg:flex items-center gap-8 transition-all duration-500 ${
+            className={`hidden lg:flex items-center gap-6 transition-all duration-500 ${
               isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+            <Link href="/about">
+              <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                ABOUT
+              </span>
+            </Link>
+            <Link href="/initiatives">
+              <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                INITIATIVES
+              </span>
+            </Link>
+            <Link href="/journal">
+              <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                MAGAZINE
+              </span>
+            </Link>
+            <Link href="/join">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 h-10 text-sm font-serif">
+                JOIN US
+              </Button>
+            </Link>
           </div>
 
           {/* Hamburger Menu Button - Always visible on all devices */}
