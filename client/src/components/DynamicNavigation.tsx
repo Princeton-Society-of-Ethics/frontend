@@ -42,7 +42,7 @@ export default function DynamicNavigation() {
             : "bg-transparent"
         }`}
       >
-        <div className={`container flex items-center justify-between transition-all duration-500 px-4 md:px-0 ${
+        <div className={`flex items-center justify-between px-4 md:px-8 transition-all duration-500 ${
           isScrolled ? "h-20" : "h-32"
         }`}>
           {/* Logo and Title - Always visible */}
@@ -108,10 +108,10 @@ export default function DynamicNavigation() {
               </Link>
             </div>
 
-            {/* Hamburger Menu Button - Always visible on all devices */}
+            {/* Hamburger Menu Button - Always visible */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`flex flex-col justify-center items-center w-12 h-12 gap-2 relative z-50 transition-all flex-shrink-0 ${
+              className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 flex-shrink-0 ${
                 isScrolled 
                   ? "text-foreground" 
                   : "text-white drop-shadow-lg"
@@ -120,50 +120,32 @@ export default function DynamicNavigation() {
             >
               {!isMenuOpen ? (
                 <>
-                  {/* Top line */}
-                  <span 
-                    className={`block h-1 w-6 transition-all duration-300 ${
-                      isScrolled ? "bg-foreground" : "bg-white"
-                    }`}
-                  />
-                  {/* Middle line */}
-                  <span 
-                    className={`block h-1 w-6 transition-all duration-300 ${
-                      isScrolled ? "bg-foreground" : "bg-white"
-                    }`}
-                  />
-                  {/* Bottom line */}
-                  <span 
-                    className={`block h-1 w-6 transition-all duration-300 ${
-                      isScrolled ? "bg-foreground" : "bg-white"
-                    }`}
-                  />
+                  <span className={`block h-0.5 w-6 transition-all duration-300 ${isScrolled ? "bg-foreground" : "bg-white"}`} />
+                  <span className={`block h-0.5 w-6 transition-all duration-300 ${isScrolled ? "bg-foreground" : "bg-white"}`} />
+                  <span className={`block h-0.5 w-6 transition-all duration-300 ${isScrolled ? "bg-foreground" : "bg-white"}`} />
                 </>
               ) : (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6" strokeWidth={2} />
               )}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Full-Page Menu Overlay */}
+      {/* Full-Page Menu Overlay - Portal to body */}
       {isMenuOpen && (
-        <>
+        <div className="fixed inset-0 z-30">
           {/* Backdrop */}
           <div
-            className={`fixed inset-0 z-30 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 transition-opacity duration-300 opacity-100`}
+            className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
             onClick={() => setIsMenuOpen(false)}
           />
 
           {/* Menu Content */}
-          <div
-            className={`fixed inset-0 z-40 flex transition-all duration-500 ease-out`}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="absolute inset-0 flex overflow-hidden">
             {/* Left Side - Menu Items */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-              <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 text-white animate-fade-in`}>
+            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20 relative z-10">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-white">
                 Menu
               </h2>
               <nav className="space-y-8">
@@ -171,9 +153,9 @@ export default function DynamicNavigation() {
                   <Link key={item.href} href={item.href}>
                     <div
                       onClick={() => setIsMenuOpen(false)}
-                      className={`text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer`}
+                      className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
                       style={{
-                        animation: `slideInLeft 0.6s ease-out ${index * 0.1}s both`
+                        animation: `slideInLeft 0.5s ease-out ${index * 0.08}s both`
                       }}
                     >
                       {item.label}
@@ -184,16 +166,17 @@ export default function DynamicNavigation() {
             </div>
 
             {/* Right Side - Email Subscription */}
-            <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 bg-foreground/10 backdrop-blur-sm`}
+            <div 
+              className="hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 bg-foreground/10 backdrop-blur-sm relative z-10"
               style={{
-                animation: `fadeIn 0.6s ease-out 0.2s both`
+                animation: `fadeIn 0.5s ease-out 0.2s both`
               }}
             >
               <div className="max-w-md">
-                <h3 className={`text-3xl font-serif font-bold mb-4 text-white`}>
+                <h3 className="text-3xl font-serif font-bold mb-4 text-white">
                   Stay Connected
                 </h3>
-                <p className={`text-lg mb-8 font-light text-white/80`}>
+                <p className="text-lg mb-8 font-light text-white/80">
                   Subscribe to our newsletter for updates on events, articles, and initiatives.
                 </p>
                 
@@ -201,7 +184,7 @@ export default function DynamicNavigation() {
                   <input
                     type="email"
                     placeholder="Your email"
-                    className={`w-full px-4 py-3 rounded-sm border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-primary transition-colors font-serif`}
+                    className="w-full px-4 py-3 rounded-sm border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-primary transition-colors font-serif"
                   />
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-12 text-lg font-serif">
                     Subscribe
@@ -231,7 +214,7 @@ export default function DynamicNavigation() {
               }
             }
           `}</style>
-        </>
+        </div>
       )}
     </>
   );
