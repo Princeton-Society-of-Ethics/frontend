@@ -23,16 +23,16 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 bg-background animate-fade-in-up">
+      <section className="py-24 bg-amber-900/20 border-t border-amber-900/30 animate-fade-in-up">
         <div className="container max-w-4xl">
           <div className="mb-12">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Our Mission</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground mb-8 stagger-item-2">
+            <span className="text-amber-700 font-serif italic text-sm mb-4 block stagger-item-1">Our Mission</span>
+            <h2 className="font-serif text-5xl font-bold text-amber-950 mb-8 stagger-item-2">
               Fostering Ethical Leadership
             </h2>
           </div>
           
-          <div className="space-y-8 text-lg text-muted-foreground leading-relaxed">
+          <div className="space-y-8 text-lg text-amber-900/70 leading-relaxed">
             <p className="stagger-item-3">
               The Princeton Undergraduate Society of Ethics exists to cultivate a community of students committed to serious ethical inquiry. We believe that the most pressing challenges of our time—from artificial intelligence to climate change, from social justice to global inequality—are fundamentally ethical in nature.
             </p>
