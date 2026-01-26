@@ -90,15 +90,15 @@ export default function DynamicNavigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden transition-colors ${
+            className={`md:hidden transition-colors z-50 p-2 ${
               isScrolled ? "text-foreground" : "text-background"
             }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-7 w-7 stroke-[2.5]" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-7 w-7 stroke-[2.5]" />
             )}
           </button>
         </div>

@@ -47,19 +47,19 @@ export default function Hero() {
             <img 
               src="/Princeton-SocietyofEthics-logo.png" 
               alt="The Thinker" 
-              className="h-[60%] w-[60%] object-contain opacity-30"
+              className="h-[50%] w-[50%] object-contain opacity-40 drop-shadow-lg"
             />
           </div>
           
           {/* Floating Card 1 */}
-          <div className="absolute top-32 right-10 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
-            <p className="font-serif italic text-base mb-2">"The unexamined life is not worth living."</p>
+          <div className="absolute top-24 right-8 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block z-20">
+            <p className="font-serif italic text-sm mb-2">"The unexamined life is not worth living."</p>
             <p className="text-xs text-muted-foreground font-medium">— Socrates</p>
           </div>
 
           {/* Floating Card 2 */}
-          <div className="absolute bottom-32 left-10 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
-            <p className="font-serif italic text-base mb-2">"Ethics is knowing the difference between what you have a right to do and what is right to do."</p>
+          <div className="absolute bottom-24 left-8 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block z-20">
+            <p className="font-serif italic text-sm mb-2">"Ethics is knowing the difference between what you have a right to do and what is right to do."</p>
             <p className="text-xs text-muted-foreground font-medium">— Potter Stewart</p>
           </div>
         </div>
