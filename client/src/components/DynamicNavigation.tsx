@@ -132,12 +132,12 @@ export default function DynamicNavigation() {
         </div>
       </nav>
 
-      {/* Full-Page Menu Overlay - Portal to body */}
+      {/* Full-Page Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-30">
-          {/* Backdrop */}
+          {/* Backdrop with animation */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+            className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fadeIn"
             onClick={() => setIsMenuOpen(false)}
           />
 
@@ -145,7 +145,7 @@ export default function DynamicNavigation() {
           <div className="absolute inset-0 flex overflow-hidden">
             {/* Left Side - Menu Items */}
             <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20 relative z-10">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-white">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-white animate-slideInDown">
                 Menu
               </h2>
               <nav className="space-y-8">
@@ -155,7 +155,7 @@ export default function DynamicNavigation() {
                       onClick={() => setIsMenuOpen(false)}
                       className="text-2xl md:text-3xl font-serif font-light text-white hover:text-primary transition-colors duration-200 cursor-pointer"
                       style={{
-                        animation: `slideInLeft 0.5s ease-out ${index * 0.08}s both`
+                        animation: `slideInLeft 0.6s ease-out ${(index + 1) * 0.1}s both`
                       }}
                     >
                       {item.label}
@@ -169,7 +169,7 @@ export default function DynamicNavigation() {
             <div 
               className="hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 bg-foreground/10 backdrop-blur-sm relative z-10"
               style={{
-                animation: `fadeIn 0.5s ease-out 0.2s both`
+                animation: `fadeIn 0.6s ease-out 0.2s both`
               }}
             >
               <div className="max-w-md">
@@ -205,6 +205,16 @@ export default function DynamicNavigation() {
                 transform: translateX(0);
               }
             }
+            @keyframes slideInDown {
+              from {
+                opacity: 0;
+                transform: translateY(-20px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
             @keyframes fadeIn {
               from {
                 opacity: 0;
@@ -212,6 +222,12 @@ export default function DynamicNavigation() {
               to {
                 opacity: 1;
               }
+            }
+            .animate-fadeIn {
+              animation: fadeIn 0.5s ease-out;
+            }
+            .animate-slideInDown {
+              animation: slideInDown 0.6s ease-out;
             }
           `}</style>
         </div>
