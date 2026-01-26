@@ -111,7 +111,7 @@ export default function DynamicNavigation() {
           {/* Hamburger Menu Button - Always visible on all devices */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex flex-col justify-center items-center w-14 h-14 gap-2 relative z-50 transition-all ${
+            className={`flex flex-col justify-center items-center w-14 h-14 gap-2 relative z-50 transition-all ml-4 md:ml-8 ${
               isScrolled 
                 ? "text-foreground" 
                 : "text-white drop-shadow-lg"
@@ -145,7 +145,7 @@ export default function DynamicNavigation() {
         <>
           {/* Backdrop with fade animation */}
           <div
-            className={`fixed inset-0 z-30 transition-opacity duration-700 ${
+            className={`fixed inset-0 z-30 transition-opacity duration-700 pointer-events-auto ${
               isMenuAnimating ? "opacity-100" : "opacity-0"
             } ${
               isScrolled
@@ -157,7 +157,7 @@ export default function DynamicNavigation() {
 
           {/* Menu Content with slide animation */}
           <div
-            className={`fixed inset-0 z-30 pointer-events-none`}
+            className={`fixed inset-0 z-40 pointer-events-none`}
             onClick={() => setIsMenuOpen(false)}
           >
             <div
