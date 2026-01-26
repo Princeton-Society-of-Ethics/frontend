@@ -73,30 +73,32 @@ export default function MagazinePage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
         <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
             Encompass
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light">
+          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
             A student-run journal of ethical inquiry, featuring original writing on philosophy, ethics, and moral questions.
           </p>
         </div>
       </section>
 
       {/* Featured Articles */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container">
           <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block">Latest Articles</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Latest Articles</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
               Featured Writing
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {featuredArticles.map((article, index) => (
-              <article key={index} className="bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow">
+            {featuredArticles.map((article, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+              <article key={index} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
                 <div className="mb-4">
                   <span className="inline-block bg-primary/20 text-primary text-xs font-medium px-3 py-1 rounded-sm mb-3">
                     {article.category}
@@ -119,21 +121,24 @@ export default function MagazinePage() {
                   </Button>
                 </div>
               </article>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
 
       {/* Past Issues */}
-      <section className="py-24 bg-secondary/20 border-t border-border">
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
             Past Issues
           </h2>
           
           <div className="space-y-8">
-            {issues.map((issue, index) => (
-              <div key={index} className="bg-card rounded-sm border border-border p-10">
+            {issues.map((issue, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 2, 8)}`;
+              return (
+              <div key={index} className={`bg-card rounded-sm border border-border p-10 ${staggerClass}`}>
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                   <div className="flex-1">
                     <div className="mb-3">
@@ -167,21 +172,22 @@ export default function MagazinePage() {
                   </div>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
 
       {/* Submit Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-6 stagger-item-1">
             Submit Your Work
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
             Encompass welcomes submissions from all Princeton undergraduates. We accept essays, creative writing, research papers, and other forms of ethical inquiry. Submissions are peer-reviewed and published on a rolling basis.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
             Submit an Article
           </Button>
         </div>

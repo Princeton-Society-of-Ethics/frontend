@@ -49,23 +49,25 @@ export default function InitiativesPage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
         <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
             Our Initiatives
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light">
+          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
             We engage the campus community through diverse programs and projects that advance ethical inquiry and moral leadership.
           </p>
         </div>
       </section>
 
       {/* Initiatives Grid */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {initiatives.map((initiative, index) => (
-              <div key={index} className="border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+            {initiatives.map((initiative, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 1, 8)}`;
+              return (
+              <div key={index} className={`border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 ${staggerClass}`}>
                 <div className="text-4xl mb-4">{initiative.icon}</div>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
                   {initiative.title}
@@ -77,22 +79,23 @@ export default function InitiativesPage() {
                   {initiative.details}
                 </p>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border">
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container max-w-3xl">
           <div className="text-center">
-            <h2 className="font-serif text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-serif text-5xl font-bold text-foreground mb-6 stagger-item-1">
               Get Involved
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
               Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community. Join us for our next event or reach out to learn more about membership.
             </p>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
               Join Our Community
             </Button>
           </div>

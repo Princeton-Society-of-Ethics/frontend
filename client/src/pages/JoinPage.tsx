@@ -64,30 +64,32 @@ export default function JoinPage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
         <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
             Join Us
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light">
+          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
             Become part of a community dedicated to ethical inquiry, moral leadership, and meaningful dialogue.
           </p>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container">
           <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block">Why Join</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Why Join</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
               What You'll Gain
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow">
+            {benefits.map((benefit, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+              <div key={index} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
                 <div className="w-12 h-12 bg-primary/20 rounded-full mb-6 flex items-center justify-center">
                   <span className="text-primary font-bold text-lg">{index + 1}</span>
                 </div>
@@ -98,20 +100,22 @@ export default function JoinPage() {
                   {benefit.description}
                 </p>
               </div>
-            ))}
+            );
+            })
+          }
           </div>
         </div>
       </section>
 
       {/* How to Join Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border">
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container max-w-3xl">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
             How to Get Started
           </h2>
           
           <div className="space-y-8">
-            <div className="flex gap-6">
+            <div className="flex gap-6 stagger-item-2">
               <div className="flex-shrink-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
                   1
@@ -127,7 +131,7 @@ export default function JoinPage() {
               </div>
             </div>
             
-            <div className="flex gap-6">
+            <div className="flex gap-6 stagger-item-3">
               <div className="flex-shrink-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
                   2
@@ -143,7 +147,7 @@ export default function JoinPage() {
               </div>
             </div>
             
-            <div className="flex gap-6">
+            <div className="flex gap-6 stagger-item-4">
               <div className="flex-shrink-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
                   3
@@ -163,15 +167,17 @@ export default function JoinPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container max-w-3xl">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
             Frequently Asked Questions
           </h2>
           
           <div className="space-y-8">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-border pb-8 last:border-b-0">
+            {faqs.map((faq, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 2, 8)}`;
+              return (
+              <div key={index} className={`border-b border-border pb-8 last:border-b-0 ${staggerClass}`}>
                 <h3 className="font-serif text-lg font-bold text-foreground mb-3">
                   {faq.question}
                 </h3>
@@ -179,21 +185,22 @@ export default function JoinPage() {
                   {faq.answer}
                 </p>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border">
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-6 stagger-item-1">
             Ready to Join?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
             Reach out to us with any questions or to learn more about membership. We're always excited to welcome new members to our community.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
               Contact Us
             </Button>

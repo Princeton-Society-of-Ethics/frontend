@@ -60,30 +60,32 @@ export default function TeamPage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
         <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
             Our Team
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light">
+          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
             Meet the dedicated students leading the Princeton Undergraduate Society of Ethics.
           </p>
         </div>
       </section>
 
       {/* Executive Board Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container">
           <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block">Leadership</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Leadership</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
               Executive Board
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {executiveBoard.map((member) => (
-              <div key={member.name} className="bg-card rounded-sm border border-border p-10 hover:shadow-lg transition-shadow">
+            {executiveBoard.map((member, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+              <div key={member.name} className={`bg-card rounded-sm border border-border p-10 hover:shadow-lg transition-shadow ${staggerClass}`}>
                 <div className="w-20 h-20 bg-primary/20 rounded-full mb-6"></div>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
                   {member.name}
@@ -101,24 +103,28 @@ export default function TeamPage() {
                   {member.email}
                 </a>
               </div>
-            ))}
+            );
+            })
+          }
           </div>
         </div>
       </section>
 
       {/* Committee Leads Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border">
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container">
           <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block">Leadership</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Leadership</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
               Committee Leads
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {committeeLead.map((member) => (
-              <div key={member.name} className="bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow">
+            {committeeLead.map((member, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+              <div key={member.name} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
                 <div className="w-16 h-16 bg-primary/20 rounded-full mb-6"></div>
                 <h3 className="font-serif text-lg font-bold text-foreground mb-2">
                   {member.name}
@@ -130,21 +136,23 @@ export default function TeamPage() {
                   {member.bio}
                 </p>
               </div>
-            ))}
+            );
+            })
+          }
           </div>
         </div>
       </section>
 
       {/* Join Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background animate-fade-in-up">
         <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-6 stagger-item-1">
             Interested in Leadership?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
             We're always looking for passionate students to join our leadership team. Leadership applications open twice a year—in the fall and spring. Whether you're interested in event planning, publications, outreach, or operations, there's a role for you.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
             Learn About Leadership Roles
           </Button>
         </div>
