@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
-import PageTransition from "@/components/PageTransition";
 
 export default function InitiativesPage() {
   const initiatives = [
@@ -44,9 +43,8 @@ export default function InitiativesPage() {
   ];
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-background">
-        <DynamicNavigation />
+    <div className="min-h-screen bg-background">
+      <DynamicNavigation />
       
       {/* Hero Section */}
       <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -108,8 +106,7 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-        <Footer />
-      </div>
-    </PageTransition>
+      <Footer />
+    </div>
   );
 }
