@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function DynamicNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuAnimating, setIsMenuAnimating] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,8 +19,10 @@ export default function DynamicNavigation() {
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
+      setIsMenuAnimating(true);
     } else {
       document.body.style.overflow = "unset";
+      setIsMenuAnimating(false);
     }
   }, [isMenuOpen]);
 
@@ -114,8 +117,8 @@ export default function DynamicNavigation() {
         <>
           {/* Backdrop with fade animation */}
           <div
-            className={`fixed inset-0 z-30 transition-opacity duration-500 ${
-              isMenuOpen ? "opacity-100" : "opacity-0"
+            className={`fixed inset-0 z-30 transition-opacity duration-700 ${
+              isMenuAnimating ? "opacity-100" : "opacity-0"
             } ${
               isScrolled
                 ? "bg-background"
@@ -126,19 +129,20 @@ export default function DynamicNavigation() {
 
           {/* Menu Content with slide animation */}
           <div
-            className={`fixed inset-0 z-30 pointer-events-none transition-all duration-500`}
+            className={`fixed inset-0 z-30 pointer-events-none`}
             onClick={() => setIsMenuOpen(false)}
           >
             <div
-              className={`h-full flex pointer-events-auto transition-all duration-500 ${
-                isMenuOpen ? "translate-x-0" : "translate-x-full"
-              }`}
+              className={`h-full flex pointer-events-auto transition-all duration-700 ease-out`}
               onClick={(e) => e.stopPropagation()}
+              style={{
+                transform: isMenuAnimating ? "translateX(0)" : "translateX(100%)",
+              }}
             >
               {/* Left Side - Menu Items with staggered fade-in */}
               <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20">
                 <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 transition-all duration-700 ${
-                  isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  isMenuAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 } ${
                   isScrolled ? "text-foreground" : "text-white"
                 }`}>
@@ -150,7 +154,7 @@ export default function DynamicNavigation() {
                       <div
                         onClick={() => setIsMenuOpen(false)}
                         className={`text-2xl md:text-3xl font-serif font-light transition-all duration-500 cursor-pointer hover:text-primary ${
-                          isMenuOpen 
+                          isMenuAnimating 
                             ? "opacity-100 translate-x-0" 
                             : "opacity-0 -translate-x-8"
                         } ${
@@ -159,7 +163,7 @@ export default function DynamicNavigation() {
                             : "text-white"
                         }`}
                         style={{
-                          transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms"
+                          transitionDelay: isMenuAnimating ? `${(index + 1) * 100}ms` : "0ms"
                         }}
                       >
                         {item.label}
@@ -171,7 +175,7 @@ export default function DynamicNavigation() {
 
               {/* Right Side - Email Subscription with fade-in */}
               <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 transition-all duration-700 ${
-                isMenuOpen ? "opacity-100" : "opacity-0"
+                isMenuAnimating ? "opacity-100" : "opacity-0"
               } ${
                 isScrolled
                   ? "bg-muted"
