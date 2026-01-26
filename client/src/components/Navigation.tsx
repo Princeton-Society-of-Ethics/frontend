@@ -17,7 +17,7 @@ export default function Navigation() {
         <Link href="/" className="flex items-center gap-4 group">
           <div className="relative h-12 w-12 overflow-hidden">
             <img 
-              src="/logo.svg" 
+              src="/images/logo.png" 
               alt="Princeton Ethics Society Logo" 
               className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
             />
