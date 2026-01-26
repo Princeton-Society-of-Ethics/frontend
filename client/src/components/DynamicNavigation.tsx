@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function DynamicNavigation() {
@@ -49,7 +48,7 @@ export default function DynamicNavigation() {
                   className={`font-serif font-semibold leading-none tracking-tight transition-all duration-500 ${
                     isScrolled
                       ? "text-foreground text-sm"
-                      : "text-background text-base"
+                      : "text-white text-base drop-shadow-lg"
                   }`}
                 >
                   Princeton Undergraduate
@@ -58,7 +57,7 @@ export default function DynamicNavigation() {
                   className={`font-serif font-light leading-none tracking-wide transition-all duration-500 ${
                     isScrolled
                       ? "text-foreground/60 text-xs"
-                      : "text-background/80 text-sm"
+                      : "text-white/80 text-sm drop-shadow-lg"
                   }`}
                 >
                   Society of Ethics
@@ -87,25 +86,38 @@ export default function DynamicNavigation() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Hamburger Icon with 3 lines */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden flex items-center justify-center w-12 h-12 rounded transition-all z-50 ${
+            className={`md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative z-50 transition-all ${
               isScrolled 
-                ? "text-foreground hover:bg-muted" 
-                : "text-white drop-shadow-lg hover:opacity-80"
+                ? "text-foreground" 
+                : "text-white drop-shadow-lg"
             }`}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-7 w-7" />
-            ) : (
-              <Menu className="h-7 w-7" />
-            )}
+            {/* Top line */}
+            <span 
+              className={`block h-0.5 w-6 transition-all duration-300 ${
+                isScrolled ? "bg-foreground" : "bg-white"
+              } ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+            />
+            {/* Middle line */}
+            <span 
+              className={`block h-0.5 w-6 transition-all duration-300 ${
+                isScrolled ? "bg-foreground" : "bg-white"
+              } ${isMobileMenuOpen ? "opacity-0" : ""}`}
+            />
+            {/* Bottom line */}
+            <span 
+              className={`block h-0.5 w-6 transition-all duration-300 ${
+                isScrolled ? "bg-foreground" : "bg-white"
+              } ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            />
           </button>
         </div>
 
-          {/* Mobile Menu - Dropdown */}
+        {/* Mobile Menu - Dropdown */}
         {isMobileMenuOpen && (
           <div
             className={`md:hidden transition-all duration-300 ${
@@ -122,7 +134,7 @@ export default function DynamicNavigation() {
                     className={`text-sm font-medium transition-colors cursor-pointer ${
                       isScrolled
                         ? "text-foreground hover:text-primary"
-                        : "text-background hover:text-primary"
+                        : "text-white hover:text-primary"
                     }`}
                   >
                     {item.label}
@@ -141,8 +153,6 @@ export default function DynamicNavigation() {
           </div>
         )}
       </nav>
-
-      {/* No spacer - navigation is fixed and overlays content */}
     </>
   );
 }
