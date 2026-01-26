@@ -108,19 +108,24 @@ export default function InitiativesPage() {
 
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-foreground to-foreground/95 text-background animate-fade-in-up">
-        <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-5xl font-bold mb-6 stagger-item-1">
+      <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-[50%] -left-[10%] w-[50%] h-[200%] bg-white rotate-12 transform origin-center"></div>
+        </div>
+
+        <div className="container max-w-3xl text-center relative z-10">
+          <h2 className="font-serif text-5xl font-bold mb-6 text-primary-foreground stagger-item-1">
             Ready to Explore Ethical Questions?
           </h2>
-          <p className="text-lg text-background/80 mb-10 leading-relaxed stagger-item-2">
+          <p className="text-lg text-primary-foreground/90 mb-10 leading-relaxed stagger-item-2">
             Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
+            <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
               Join Our Community
             </Button>
-            <Button variant="outline" className="border-background text-background hover:bg-background/10 rounded-sm px-8 h-12 text-base font-serif">
+            <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
               Learn More
             </Button>
           </div>

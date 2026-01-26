@@ -141,6 +141,86 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Photo Gallery Section */}
+      <section className="py-24 bg-background border-t border-border animate-fade-in-up">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Our Community</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
+              Moments from Our Events
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Gallery Item 1 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-3">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">🎤</div>
+                  <p className="text-foreground/70 font-medium">Speaker Series 2024</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Gallery Item 2 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">📚</div>
+                  <p className="text-foreground/70 font-medium">Encompass Launch</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Gallery Item 3 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-5">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">💬</div>
+                  <p className="text-foreground/70 font-medium">Discussion Seminar</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Gallery Item 4 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-6">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">🤝</div>
+                  <p className="text-foreground/70 font-medium">Mentorship Program</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Gallery Item 5 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-7">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">🌍</div>
+                  <p className="text-foreground/70 font-medium">Ethics in Action</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Gallery Item 6 */}
+            <div className="group relative h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden border border-primary/20 hover:border-primary transition-all duration-300 stagger-item-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">🔬</div>
+                  <p className="text-foreground/70 font-medium">Research Collab</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Join Us CTA Section */}
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
         {/* Background decoration */}
