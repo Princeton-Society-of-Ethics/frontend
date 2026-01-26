@@ -5,17 +5,17 @@ export default function Footer() {
     <footer className="bg-foreground text-background py-16 mt-auto">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-2 mb-6">
             <img 
-              src="/logo.svg" 
+              src="/Princeton-SocietyofEthics-logo.png" 
               alt="Princeton Ethics Society Logo" 
-              className="h-16 w-16 object-contain invert brightness-0"
+              className="h-12 w-12 object-contain"
             />
             <div className="flex flex-col">
-              <span className="font-serif text-xl font-semibold leading-none tracking-tight">
+              <span className="font-serif text-lg font-semibold leading-none tracking-tight">
                 Princeton Undergraduate
               </span>
-              <span className="font-serif text-xl font-light leading-none tracking-wide opacity-80">
+              <span className="font-serif text-lg font-light leading-none tracking-wide opacity-80">
                 Society of Ethics
               </span>
             </div>
