@@ -153,7 +153,7 @@ export default function DynamicNavigation() {
                     <Link key={item.href} href={item.href}>
                       <div
                         onClick={() => setIsMenuOpen(false)}
-                        className={`text-2xl md:text-3xl font-serif font-light transition-all duration-500 cursor-pointer hover:text-primary ${
+                        className={`text-2xl md:text-3xl font-serif font-light transition-colors duration-200 cursor-pointer hover:text-primary ${
                           isMenuAnimating 
                             ? "opacity-100 translate-x-0" 
                             : "opacity-0 -translate-x-8"
