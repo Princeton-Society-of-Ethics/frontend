@@ -95,14 +95,14 @@ export default function DynamicNavigation() {
             ))}
           </div>
 
-          {/* Mobile/Tablet Menu Button - Only visible when NOT scrolled */}
+          {/* Hamburger Menu Button - Always visible on all devices */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex lg:hidden flex-col justify-center items-center w-14 h-14 gap-2 relative z-50 transition-all ${
+            className={`flex flex-col justify-center items-center w-14 h-14 gap-2 relative z-50 transition-all ${
               isScrolled 
                 ? "text-foreground" 
                 : "text-white drop-shadow-lg"
-            } ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+            }`}
             aria-label="Toggle menu"
           >
             {/* Top line */}
@@ -128,13 +128,17 @@ export default function DynamicNavigation() {
       </nav>
 
       {/* Full-Page Menu Overlay */}
-      {isMenuOpen && !isScrolled && (
+      {isMenuOpen && (
         <>
           {/* Backdrop with fade animation */}
           <div
             className={`fixed inset-0 z-30 transition-opacity duration-700 ${
               isMenuAnimating ? "opacity-100" : "opacity-0"
-            } bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900`}
+            } ${
+              isScrolled
+                ? "bg-background"
+                : "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+            }`}
             onClick={() => setIsMenuOpen(false)}
           />
 
@@ -154,7 +158,9 @@ export default function DynamicNavigation() {
               <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-20">
                 <h2 className={`text-4xl md:text-5xl font-serif font-bold mb-12 transition-all duration-700 ${
                   isMenuAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                } text-white`}>
+                } ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}>
                   Menu
                 </h2>
                 <nav className="space-y-6">
@@ -166,7 +172,11 @@ export default function DynamicNavigation() {
                           isMenuAnimating 
                             ? "opacity-100 translate-x-0" 
                             : "opacity-0 -translate-x-8"
-                        } text-white`}
+                        } ${
+                          isScrolled
+                            ? "text-foreground"
+                            : "text-white"
+                        }`}
                         style={{
                           transitionDelay: isMenuAnimating ? `${(index + 1) * 100}ms` : "0ms"
                         }}
@@ -181,12 +191,20 @@ export default function DynamicNavigation() {
               {/* Right Side - Email Subscription with fade-in */}
               <div className={`hidden md:flex w-1/2 flex-col justify-center items-center px-12 py-20 transition-all duration-700 ${
                 isMenuAnimating ? "opacity-100" : "opacity-0"
-              } bg-foreground/10 backdrop-blur-sm`}>
+              } ${
+                isScrolled
+                  ? "bg-muted"
+                  : "bg-foreground/10 backdrop-blur-sm"
+              }`}>
                 <div className="max-w-md">
-                  <h3 className={`text-3xl font-serif font-bold mb-4 text-white`}>
+                  <h3 className={`text-3xl font-serif font-bold mb-4 ${
+                    isScrolled ? "text-foreground" : "text-white"
+                  }`}>
                     Stay Connected
                   </h3>
-                  <p className={`text-lg mb-8 font-light text-white/80`}>
+                  <p className={`text-lg mb-8 font-light ${
+                    isScrolled ? "text-foreground/70" : "text-white/80"
+                  }`}>
                     Subscribe to our newsletter for updates on events, articles, and initiatives.
                   </p>
                   
@@ -194,7 +212,11 @@ export default function DynamicNavigation() {
                     <input
                       type="email"
                       placeholder="Your email"
-                      className={`w-full px-4 py-3 rounded-sm border-2 border-white/30 bg-white/10 text-white placeholder-white/60 transition-colors font-serif focus:outline-none focus:border-primary`}
+                      className={`w-full px-4 py-3 rounded-sm border-2 transition-colors font-serif ${
+                        isScrolled
+                          ? "border-border bg-background text-foreground placeholder-foreground/50"
+                          : "border-white/30 bg-white/10 text-white placeholder-white/60"
+                      } focus:outline-none focus:border-primary`}
                     />
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-12 text-lg font-serif">
                       Subscribe
