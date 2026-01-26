@@ -5,9 +5,11 @@ import AboutSection from "@/components/AboutSection";
 import Magazine from "@/components/Magazine";
 import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function Home() {
   return (
+    <PageTransition>
     <div className="min-h-screen flex flex-col bg-background font-sans selection:bg-primary/20 selection:text-primary">
       <DynamicNavigation />
       
@@ -21,5 +23,6 @@ export default function Home() {
       
       <Footer />
     </div>
+    </PageTransition>
   );
 }

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function TeamPage() {
   const executiveBoard = [
@@ -54,6 +55,7 @@ export default function TeamPage() {
   ];
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       <DynamicNavigation />
       
@@ -150,5 +152,6 @@ export default function TeamPage() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }

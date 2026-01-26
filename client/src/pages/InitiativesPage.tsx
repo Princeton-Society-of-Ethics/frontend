@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function InitiativesPage() {
   const initiatives = [
@@ -30,19 +31,20 @@ export default function InitiativesPage() {
     },
     {
       title: "Mentorship Program",
-      description: "Connecting students interested in ethics with faculty advisors and experienced peers.",
-      details: "Our mentorship program pairs new members with experienced society leaders and faculty mentors who guide their ethical development and career exploration.",
+      description: "Connecting experienced student leaders with newer members to foster intellectual growth.",
+      details: "Our mentorship program pairs experienced members with students new to ethical inquiry, providing guidance on coursework, research, and personal development. Mentors help mentees navigate ethical questions and develop leadership skills.",
       icon: "🤝"
     },
     {
-      title: "Research Grants",
-      description: "Funding student research projects that explore ethical questions and contribute to the field.",
-      details: "We provide grants to support student-led research in ethics, philosophy, and related fields. Projects can be theoretical, applied, or creative in nature.",
+      title: "Research Collaborations",
+      description: "Supporting student-led research projects in applied ethics and moral philosophy.",
+      details: "We provide resources and mentorship for students conducting original research on ethical topics. Recent projects have explored algorithmic bias, climate ethics, and social justice frameworks.",
       icon: "🔬"
     }
   ];
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       <DynamicNavigation />
       
@@ -61,52 +63,44 @@ export default function InitiativesPage() {
       {/* Initiatives Grid */}
       <section className="py-24 bg-background">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initiatives.map((initiative, index) => (
-              <div 
-                key={index}
-                className="bg-card rounded-sm border border-border p-10 hover:shadow-lg transition-shadow group"
-              >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">
-                  {initiative.icon}
-                </div>
+              <div key={index} className="border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+                <div className="text-4xl mb-4">{initiative.icon}</div>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
                   {initiative.title}
                 </h3>
-                <p className="text-primary font-medium text-sm mb-4">
+                <p className="text-muted-foreground mb-4">
                   {initiative.description}
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-sm text-muted-foreground/80 leading-relaxed">
                   {initiative.details}
                 </p>
-                <Button 
-                  variant="outline" 
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-6 h-10 text-sm font-medium transition-all"
-                >
-                  Learn More
-                </Button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* CTA Section */}
       <section className="py-24 bg-secondary/20 border-t border-border">
-        <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6">
-            Get Involved
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community. Join us for our next event or reach out to learn more about membership.
-          </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
-            Join Our Community
-          </Button>
+        <div className="container max-w-3xl">
+          <div className="text-center">
+            <h2 className="font-serif text-5xl font-bold text-foreground mb-6">
+              Get Involved
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community. Join us for our next event or reach out to learn more about membership.
+            </p>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
+              Join Our Community
+            </Button>
+          </div>
         </div>
       </section>
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }
