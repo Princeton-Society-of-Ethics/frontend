@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground text-background pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground text-background">
       {/* Abstract Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -16,8 +16,8 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12">
-        <div className="space-y-8">
+      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8 pt-20">
           <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             What do we owe <br/>
             <span className="text-primary italic">to each other?</span>
@@ -41,9 +41,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden lg:block h-[500px] w-full">
+        <div className="relative hidden lg:block h-[600px] w-full pt-20">
           {/* Placeholder for a high-quality image - using a generated style div for now */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-sm overflow-hidden flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-sm overflow-hidden flex items-center justify-center top-0">
             <img 
               src="/Princeton-SocietyofEthics-logo.png" 
               alt="The Thinker" 
@@ -52,13 +52,13 @@ export default function Hero() {
           </div>
           
           {/* Floating Card 1 */}
-          <div className="absolute top-10 right-5 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
+          <div className="absolute top-32 right-10 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
             <p className="font-serif italic text-base mb-2">"The unexamined life is not worth living."</p>
             <p className="text-xs text-muted-foreground font-medium">— Socrates</p>
           </div>
 
           {/* Floating Card 2 */}
-          <div className="absolute bottom-10 left-5 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
+          <div className="absolute bottom-32 left-10 bg-background text-foreground p-4 rounded-sm shadow-lg max-w-xs border-l-4 border-primary hidden lg:block">
             <p className="font-serif italic text-base mb-2">"Ethics is knowing the difference between what you have a right to do and what is right to do."</p>
             <p className="text-xs text-muted-foreground font-medium">— Potter Stewart</p>
           </div>

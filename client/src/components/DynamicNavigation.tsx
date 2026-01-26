@@ -30,7 +30,7 @@ export default function DynamicNavigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-background border-b border-border shadow-md"
-            : "bg-transparent"
+            : "bg-transparent backdrop-blur-0"
         }`}
       >
         <div className="container flex items-center justify-between h-20">
@@ -42,7 +42,7 @@ export default function DynamicNavigation() {
                 alt="Princeton Ethics Society Logo"
                 className={`object-contain transition-all duration-500 ${
                   isScrolled ? "h-10 w-10" : "h-12 w-12"
-                } ${isScrolled ? "" : "invert brightness-0"}`}
+                } ${isScrolled ? "" : "brightness-200 invert"}`}
               />
               <div className="flex flex-col">
                 <span
@@ -103,13 +103,13 @@ export default function DynamicNavigation() {
           </button>
         </div>
 
-        {/* Mobile Menu - Dropdown */}
+          {/* Mobile Menu - Dropdown */}
         {isMobileMenuOpen && (
           <div
             className={`md:hidden transition-all duration-300 ${
               isScrolled
                 ? "bg-background border-b border-border"
-                : "bg-foreground/95 backdrop-blur-sm"
+                : "bg-foreground/90 backdrop-blur-md"
             }`}
           >
             <div className="container py-4 space-y-4">
@@ -140,8 +140,7 @@ export default function DynamicNavigation() {
         )}
       </nav>
 
-      {/* Spacer to prevent content overlap */}
-      <div className="h-20"></div>
+      {/* No spacer - navigation is fixed and overlays content */}
     </>
   );
 }
