@@ -89,16 +89,19 @@ export default function JoinPage() {
             {benefits.map((benefit, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
               return (
-              <div key={index} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
-                <div className="w-12 h-12 bg-primary/20 rounded-full mb-6 flex items-center justify-center">
-                  <span className="text-primary font-bold text-lg">{index + 1}</span>
+              <div key={index} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-xl transition-all duration-300 ${staggerClass}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors">
+                    <span className="text-primary font-serif font-bold text-lg">{index + 1}</span>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-foreground mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             );
             })
@@ -108,16 +111,20 @@ export default function JoinPage() {
       </section>
 
       {/* How to Join Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
+      <section className="py-24 bg-gradient-to-b from-secondary/20 to-background border-t border-border animate-fade-in-up">
         <div className="container max-w-3xl">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
-            How to Get Started
-          </h2>
+          <div className="mb-16 text-center stagger-item-1">
+            <span className="text-primary font-serif italic text-sm mb-4 block">Getting Started</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground">
+              How to Join
+            </h2>
+          </div>
           
           <div className="space-y-8">
-            <div className="flex gap-6 stagger-item-2">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
+            <div className="flex gap-6 stagger-item-2 relative">
+              <div className="absolute left-6 top-12 bottom-0 w-1 bg-gradient-to-b from-primary to-primary/30"></div>
+              <div className="flex-shrink-0 relative z-10">
+                <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground font-serif font-bold text-lg shadow-lg">
                   1
                 </div>
               </div>
@@ -131,9 +138,10 @@ export default function JoinPage() {
               </div>
             </div>
             
-            <div className="flex gap-6 stagger-item-3">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
+            <div className="flex gap-6 stagger-item-3 relative">
+              <div className="absolute left-6 top-12 bottom-0 w-1 bg-gradient-to-b from-primary to-primary/30"></div>
+              <div className="flex-shrink-0 relative z-10">
+                <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground font-serif font-bold text-lg shadow-lg">
                   2
                 </div>
               </div>
@@ -147,9 +155,9 @@ export default function JoinPage() {
               </div>
             </div>
             
-            <div className="flex gap-6 stagger-item-4">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground font-serif font-bold">
+            <div className="flex gap-6 stagger-item-4 relative">
+              <div className="flex-shrink-0 relative z-10">
+                <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground font-serif font-bold text-lg shadow-lg">
                   3
                 </div>
               </div>

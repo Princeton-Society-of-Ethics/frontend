@@ -85,23 +85,30 @@ export default function TeamPage() {
             {executiveBoard.map((member, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
               return (
-              <div key={member.name} className={`bg-card rounded-sm border border-border p-10 hover:shadow-lg transition-shadow ${staggerClass}`}>
-                <div className="w-20 h-20 bg-primary/20 rounded-full mb-6"></div>
-                <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-medium text-sm mb-4">
-                  {member.role}
-                </p>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {member.bio}
-                </p>
-                <a 
-                  href={`mailto:${member.email}`}
-                  className="text-primary hover:text-primary/80 text-sm font-medium"
-                >
-                  {member.email}
-                </a>
+              <div key={member.name} className={`group relative bg-card rounded-lg border border-border p-10 hover:border-primary hover:shadow-2xl transition-all duration-300 overflow-hidden ${staggerClass}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative z-10">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors">
+                    <span className="text-4xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-medium text-sm mb-4 uppercase tracking-widest">
+                    {member.role}
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {member.bio}
+                  </p>
+                  <div className="pt-6 border-t border-border/50">
+                    <a 
+                      href={`mailto:${member.email}`}
+                      className="text-primary hover:text-primary/80 text-sm font-medium inline-flex items-center gap-2"
+                    >
+                      Contact
+                    </a>
+                  </div>
+                </div>
               </div>
             );
             })
@@ -124,17 +131,22 @@ export default function TeamPage() {
             {committeeLead.map((member, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
               return (
-              <div key={member.name} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
-                <div className="w-16 h-16 bg-primary/20 rounded-full mb-6"></div>
-                <h3 className="font-serif text-lg font-bold text-foreground mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-medium text-sm mb-4">
-                  {member.role}
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {member.bio}
-                </p>
+              <div key={member.name} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-lg transition-all duration-300 text-center ${staggerClass}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors mx-auto">
+                    <span className="text-2xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-medium text-xs mb-3 uppercase tracking-widest">
+                    {member.role}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
               </div>
             );
             })

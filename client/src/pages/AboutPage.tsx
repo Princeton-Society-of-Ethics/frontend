@@ -47,46 +47,98 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* History Section */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
-        <div className="container max-w-4xl">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
-            A Brief History
+      {/* History Section - Visual Timeline */}
+      <section className="py-24 bg-gradient-to-b from-secondary/20 to-background border-t border-border animate-fade-in-up">
+        <div className="container max-w-5xl">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-16 stagger-item-1 text-center">
+            Our Journey
           </h2>
           
-          <div className="space-y-8">
+          {/* Timeline - Desktop */}
+          <div className="hidden md:block relative">
+            {/* Center line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-primary to-primary/30"></div>
+            
+            <div className="space-y-12">
+              {/* 2004 */}
+              <div className="flex gap-8 stagger-item-2">
+                <div className="w-1/2 text-right pr-8">
+                  <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 className="font-serif text-3xl font-bold text-primary mb-2">2004</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Founded by philosophy majors seeking a dedicated space for ethical discourse on campus.
+                    </p>
+                  </div>
+                </div>
+                <div className="w-1/2"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+              </div>
+              
+              {/* 2010 */}
+              <div className="flex gap-8 stagger-item-3">
+                <div className="w-1/2"></div>
+                <div className="w-1/2 text-left pl-8">
+                  <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 className="font-serif text-3xl font-bold text-primary mb-2">2010</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Launched Encompass, our flagship journal showcasing student writing on ethical topics.
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+              </div>
+              
+              {/* 2015 */}
+              <div className="flex gap-8 stagger-item-4">
+                <div className="w-1/2 text-right pr-8">
+                  <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 className="font-serif text-3xl font-bold text-primary mb-2">2015</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Established our annual Speaker Series featuring renowned ethicists and philosophers.
+                    </p>
+                  </div>
+                </div>
+                <div className="w-1/2"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+              </div>
+              
+              {/* 2024 */}
+              <div className="flex gap-8 stagger-item-5">
+                <div className="w-1/2"></div>
+                <div className="w-1/2 text-left pl-8">
+                  <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 className="font-serif text-3xl font-bold text-primary mb-2\">2024</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Celebrated 20 years with 300+ active members and a thriving community of student leaders.
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline - Mobile */}
+          <div className="md:hidden space-y-6">
             <div className="border-l-4 border-primary pl-6 py-4 stagger-item-2">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-2">2004</h3>
-              <p className="text-muted-foreground">
-                Founded by a group of philosophy majors who recognized the need for a dedicated space for ethical discourse on campus.
-              </p>
+              <h3 className="font-serif text-2xl font-bold text-primary mb-2">2004</h3>
+              <p className="text-muted-foreground">Founded by philosophy majors seeking a dedicated space for ethical discourse on campus.</p>
             </div>
-            
             <div className="border-l-4 border-primary pl-6 py-4 stagger-item-3">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-2">2010</h3>
-              <p className="text-muted-foreground">
-                Launched our flagship publication, Encompass, to showcase student writing on ethical topics.
-              </p>
+              <h3 className="font-serif text-2xl font-bold text-primary mb-2">2010</h3>
+              <p className="text-muted-foreground">Launched Encompass, our flagship journal showcasing student writing on ethical topics.</p>
             </div>
-            
             <div className="border-l-4 border-primary pl-6 py-4 stagger-item-4">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-2">2015</h3>
-              <p className="text-muted-foreground">
-                Established our annual Speaker Series, bringing renowned ethicists and philosophers to campus.
-              </p>
+              <h3 className="font-serif text-2xl font-bold text-primary mb-2">2015</h3>
+              <p className="text-muted-foreground">Established our annual Speaker Series featuring renowned ethicists and philosophers.</p>
             </div>
-            
             <div className="border-l-4 border-primary pl-6 py-4 stagger-item-5">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-2">2024</h3>
-              <p className="text-muted-foreground">
-                Celebrated 20 years of ethical inquiry with over 300 active members and a thriving community of student leaders.
-              </p>
+              <h3 className="font-serif text-2xl font-bold text-primary mb-2">2024</h3>
+              <p className="text-muted-foreground">Celebrated 20 years with 300+ active members and a thriving community of student leaders.</p>
             </div>
           </div>
         </div>
       </section>
-
-
 
       {/* Values Section */}
       <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
@@ -97,37 +149,57 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="stagger-item-2">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Intellectual Rigor
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-serif text-xl">①</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-foreground">
+                  Intellectual Rigor
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed ml-16">
                 We approach ethical questions with the seriousness and depth they deserve, drawing on philosophical traditions and contemporary scholarship.
               </p>
             </div>
             
             <div className="stagger-item-3">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Inclusive Dialogue
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-serif text-xl">②</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-foreground">
+                  Inclusive Dialogue
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed ml-16">
                 We welcome diverse perspectives and backgrounds, believing that ethical inquiry is strengthened by a multiplicity of voices.
               </p>
             </div>
             
             <div className="stagger-item-4">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Practical Application
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-serif text-xl">③</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-foreground">
+                  Practical Application
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed ml-16">
                 We don't just theorize—we work to apply ethical frameworks to real-world challenges and contribute to positive change.
               </p>
             </div>
             
             <div className="stagger-item-5">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Community Building
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-serif text-xl">④</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-foreground">
+                  Community Building
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed ml-16">
                 We foster a supportive community where students feel empowered to explore difficult questions and grow as moral thinkers.
               </p>
             </div>

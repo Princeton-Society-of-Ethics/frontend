@@ -3,9 +3,15 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground text-background pt-32">
-      {/* Abstract Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background pt-32">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-8 right-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      {/* Decorative Lines */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -42,8 +48,8 @@ export default function Hero() {
         </div>
 
         <div className="relative hidden lg:block h-[600px] w-full pt-20 animate-slide-in-right">
-          {/* Placeholder for a high-quality image - using a generated style div for now */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-sm overflow-hidden flex items-center justify-center top-0 stagger-item-4">
+          {/* Main Visual Container */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent rounded-lg overflow-hidden flex items-center justify-center top-0 stagger-item-4 border border-primary/20 shadow-2xl">
             <img 
               src="/Princeton-SocietyofEthics-logo.png" 
               alt="The Thinker" 

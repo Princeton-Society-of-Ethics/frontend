@@ -61,23 +61,35 @@ export default function InitiativesPage() {
       </section>
 
       {/* Initiatives Grid */}
-      <section className="py-24 bg-background animate-fade-in-up">
+      <section className="py-24 bg-gradient-to-b from-background to-secondary/10 animate-fade-in-up">
         <div className="container">
+          <div className="mb-16 text-center stagger-item-1">
+            <span className="text-primary font-serif italic text-sm mb-4 block">What We Do</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground">Our Initiatives</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initiatives.map((initiative, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 1, 8)}`;
               return (
-              <div key={index} className={`border border-border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 ${staggerClass}`}>
-                <div className="text-4xl mb-4">{initiative.icon}</div>
-                <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
-                  {initiative.title}
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  {initiative.description}
-                </p>
-                <p className="text-sm text-muted-foreground/80 leading-relaxed">
-                  {initiative.details}
-                </p>
+              <div key={index} className={`group relative border border-border rounded-lg p-8 hover:border-primary hover:shadow-xl transition-all duration-300 bg-card hover:bg-card/80 ${staggerClass}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative z-10">
+                  <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">{initiative.icon}</div>
+                  <h3 className="font-serif text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {initiative.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 font-medium">
+                    {initiative.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    {initiative.details}
+                  </p>
+                  <div className="mt-6 pt-6 border-t border-border/50">
+                    <a href="#" className="text-primary hover:text-primary/80 text-sm font-medium inline-flex items-center gap-2">
+                      Learn more
+                    </a>
+                  </div>
+                </div>
               </div>
             );
             })}
