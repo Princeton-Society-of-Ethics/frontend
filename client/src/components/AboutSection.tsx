@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t-4 border-slate-800">
+    <section className="py-24 bg-amber-900 border-t-4 border-amber-900">
       <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="order-2 lg:order-1 relative">
           <div className="absolute -top-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
