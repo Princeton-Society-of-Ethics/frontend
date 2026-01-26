@@ -60,55 +60,107 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-      {/* Initiatives Grid */}
-      <section className="py-24 bg-gradient-to-b from-background to-secondary/10 animate-fade-in-up">
+      {/* Initiatives Grid - Professional Layout */}
+      <section className="py-32 bg-background animate-fade-in-up">
         <div className="container">
-          <div className="mb-16 text-center stagger-item-1">
-            <span className="text-primary font-serif italic text-sm mb-4 block">What We Do</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground">Our Initiatives</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-16">
             {initiatives.map((initiative, index) => {
+              const isEven = index % 2 === 0;
               const staggerClass = `stagger-item-${Math.min(index + 1, 8)}`;
+              
               return (
-              <div key={index} className={`group relative border border-border rounded-lg p-8 hover:border-primary hover:shadow-xl transition-all duration-300 bg-card hover:bg-card/80 ${staggerClass}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative z-10">
-                  <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">{initiative.icon}</div>
-                  <h3 className="font-serif text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {initiative.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 font-medium">
-                    {initiative.description}
-                  </p>
-                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
-                    {initiative.details}
-                  </p>
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <a href="#" className="text-primary hover:text-primary/80 text-sm font-medium inline-flex items-center gap-2">
-                      Learn more
-                    </a>
+                <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${staggerClass}`}>
+                  {/* Content */}
+                  <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-4">
+                        <div className="text-5xl flex-shrink-0 pt-1">{initiative.icon}</div>
+                        <div className="flex-1">
+                          <h3 className="font-serif text-3xl font-bold text-foreground mb-3">
+                            {initiative.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground font-medium mb-4">
+                            {initiative.description}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <p className="text-muted-foreground leading-relaxed text-base">
+                        {initiative.details}
+                      </p>
+                      
+                      <div className="pt-4">
+                        <a href="#" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors">
+                          Learn more about this initiative
+                          <span>→</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Visual Element */}
+                  <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className="relative h-80 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 flex items-center justify-center overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="text-8xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 transform group-hover:scale-110 transition-transform">
+                        {initiative.icon}
+                      </div>
+                      
+                      {/* Decorative accent */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                      <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl -ml-20 -mb-20"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
+              );
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Impact Stats Section */}
       <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
-        <div className="container max-w-3xl">
-          <div className="text-center">
-            <h2 className="font-serif text-5xl font-bold text-foreground mb-6 stagger-item-1">
-              Get Involved
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
-              Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community. Join us for our next event or reach out to learn more about membership.
-            </p>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
+        <div className="container">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-16 text-center stagger-item-1">
+            Our Impact
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center stagger-item-2">
+              <div className="text-5xl font-serif font-bold text-primary mb-3">300+</div>
+              <p className="text-muted-foreground font-medium">Active Members</p>
+            </div>
+            <div className="text-center stagger-item-3">
+              <div className="text-5xl font-serif font-bold text-primary mb-3">20+</div>
+              <p className="text-muted-foreground font-medium">Years of Service</p>
+            </div>
+            <div className="text-center stagger-item-4">
+              <div className="text-5xl font-serif font-bold text-primary mb-3">14</div>
+              <p className="text-muted-foreground font-medium">Magazine Volumes</p>
+            </div>
+            <div className="text-center stagger-item-5">
+              <div className="text-5xl font-serif font-bold text-primary mb-3">50+</div>
+              <p className="text-muted-foreground font-medium">Annual Events</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 bg-gradient-to-br from-foreground to-foreground/95 text-background animate-fade-in-up">
+        <div className="container max-w-3xl text-center">
+          <h2 className="font-serif text-5xl font-bold mb-6 stagger-item-1">
+            Ready to Explore Ethical Questions?
+          </h2>
+          <p className="text-lg text-background/80 mb-10 leading-relaxed stagger-item-2">
+            Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif">
               Join Our Community
+            </Button>
+            <Button variant="outline" className="border-background text-background hover:bg-background/10 rounded-sm px-8 h-12 text-base font-serif">
+              Learn More
             </Button>
           </div>
         </div>
