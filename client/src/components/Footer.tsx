@@ -9,7 +9,7 @@ export default function Footer() {
             <img 
               src="/images/logo.png" 
               alt="Princeton Ethics Society Logo" 
-              className="h-12 w-12 object-contain"
+              className="h-12 w-12 object-contain brightness-0 invert"
             />
             <div className="flex flex-col">
               <span className="font-serif text-lg font-semibold leading-none tracking-tight">
