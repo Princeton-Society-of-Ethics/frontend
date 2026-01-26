@@ -101,11 +101,6 @@ export default function DynamicNavigation() {
                 MAGAZINE
               </span>
             </Link>
-            <Link href="/team">
-              <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                TEAM
-              </span>
-            </Link>
             <Link href="/join">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 h-10 text-sm font-serif">
                 JOIN US
