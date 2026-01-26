@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function AboutPage() {
 
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       <DynamicNavigation />
       
@@ -135,5 +137,6 @@ export default function AboutPage() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }
