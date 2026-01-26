@@ -67,129 +67,219 @@ export default function MagazinePage() {
     }
   ];
 
+  const recentArticles = [
+    {
+      title: "The Moral Status of Sentient AI",
+      author: "Marcus Johnson",
+      date: "January 2025",
+      category: "Philosophy",
+      excerpt: "As AI systems become more sophisticated, we must ask: do they deserve moral consideration?"
+    },
+    {
+      title: "Environmental Justice and Indigenous Rights",
+      author: "Aisha Okonkwo",
+      date: "December 2024",
+      category: "Social Ethics",
+      excerpt: "How can we balance environmental protection with the rights of indigenous communities?"
+    },
+    {
+      title: "The Ethics of Wealth Inequality",
+      author: "David Lee",
+      date: "November 2024",
+      category: "Political Ethics",
+      excerpt: "Examining philosophical frameworks for addressing global economic disparities."
+    }
+  ];
+
   return (
     <PageTransition>
     <div className="min-h-screen bg-background">
       <DynamicNavigation />
       
-      {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
+      {/* Newspaper-style Header */}
+      <section className="pt-32 pb-12 bg-background border-b-4 border-primary">
         <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
-            Encompass
-          </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
-            A student-run journal of ethical inquiry, featuring original writing on philosophy, ethics, and moral questions.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured Articles */}
-      <section className="py-24 bg-background animate-fade-in-up">
-        <div className="container">
-          <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Latest Articles</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
-              Featured Writing
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {featuredArticles.map((article, index) => {
-              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
-              return (
-              <article key={index} className={`bg-card rounded-sm border border-border p-8 hover:shadow-lg transition-shadow ${staggerClass}`}>
-                <div className="mb-4">
-                  <span className="inline-block bg-primary/20 text-primary text-xs font-medium px-3 py-1 rounded-sm mb-3">
-                    {article.category}
-                  </span>
-                  <p className="text-muted-foreground text-sm">{article.date}</p>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-foreground mb-3 leading-tight">
-                  {article.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">By {article.author}</span>
-                  <Button 
-                    variant="ghost" 
-                    className="text-primary hover:text-primary/80 p-0 h-auto font-medium"
-                  >
-                    Read →
-                  </Button>
-                </div>
-              </article>
-            );
-            })}
+          <div className="text-center mb-8 stagger-item-1 animate-fade-in">
+            <p className="text-primary font-serif italic text-sm mb-2">Est. 2010</p>
+            <h1 className="font-serif text-7xl md:text-8xl font-bold text-foreground mb-2 tracking-tight">
+              ENCOMPASS
+            </h1>
+            <div className="h-1 w-24 bg-primary mx-auto mb-4"></div>
+            <p className="text-lg text-muted-foreground font-light italic">
+              A Student Journal of Ethical Inquiry
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Past Issues */}
-      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
+      {/* Main Content Grid - Newspaper Layout */}
+      <section className="py-12 bg-background">
         <div className="container">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 stagger-item-1">
-            Past Issues
-          </h2>
-          
-          <div className="space-y-8">
-            {issues.map((issue, index) => {
-              const staggerClass = `stagger-item-${Math.min(index + 2, 8)}`;
-              return (
-              <div key={index} className={`bg-card rounded-sm border border-border p-10 ${staggerClass}`}>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                  <div className="flex-1">
-                    <div className="mb-3">
-                      <span className="text-primary font-serif italic text-sm">
-                        {issue.volume} • {issue.issue}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
-                      {issue.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">{issue.date}</p>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {issue.description}
-                    </p>
-                    <div className="mb-6">
-                      <p className="text-sm font-medium text-foreground mb-3">Featured Articles:</p>
-                      <ul className="space-y-2">
-                        {issue.articles.map((article, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground">
-                            • {article}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-6 h-10 text-sm font-medium transition-all"
-                    >
-                      Read Full Issue
-                    </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Column - Featured Article */}
+            <div className="lg:col-span-2">
+              <div className="mb-12 animate-fade-in-up stagger-item-1">
+                <div className="border-b-2 border-primary pb-4 mb-6">
+                  <span className="text-primary font-serif italic text-xs font-bold tracking-widest mb-3 block">FEATURED</span>
+                  <h2 className="font-serif text-5xl font-bold text-foreground mb-4 leading-tight">
+                    {featuredArticles[0].title}
+                  </h2>
+                  <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                    <span>By {featuredArticles[0].author}</span>
+                    <span>•</span>
+                    <span>{featuredArticles[0].date}</span>
+                    <span>•</span>
+                    <span className="text-primary font-medium">{featuredArticles[0].category}</span>
                   </div>
                 </div>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  {featuredArticles[0].excerpt}
+                </p>
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 h-10 text-sm font-serif">
+                  Read Full Article →
+                </Button>
               </div>
-            );
-            })}
+
+              {/* Secondary Featured Articles - Two Column */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                {featuredArticles.slice(1).map((article, index) => (
+                  <div key={index} className={`border border-border p-6 hover:shadow-md transition-shadow animate-fade-in-up stagger-item-${index + 2}`}>
+                    <span className="text-primary font-serif italic text-xs font-bold tracking-widest mb-2 block">
+                      {article.category.toUpperCase()}
+                    </span>
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-3 leading-tight">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      By {article.author} • {article.date}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {article.excerpt}
+                    </p>
+                    <a href="#" className="text-primary hover:text-primary/80 text-sm font-medium">
+                      Read →
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              {/* Recent Articles List */}
+              <div className="animate-fade-in-up stagger-item-4">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                  Latest Articles
+                </h3>
+                <div className="space-y-6">
+                  {recentArticles.map((article, index) => (
+                    <article key={index} className="pb-6 border-b border-border/50 last:border-b-0">
+                      <div className="flex justify-between items-start gap-4 mb-2">
+                        <h4 className="font-serif text-lg font-bold text-foreground hover:text-primary transition-colors cursor-pointer">
+                          {article.title}
+                        </h4>
+                      </div>
+                      <p className="text-xs text-primary font-bold tracking-widest mb-2">
+                        {article.category.toUpperCase()}
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        By {article.author} • {article.date}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        {article.excerpt}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              {/* Current Issue */}
+              <div className="bg-secondary/30 border border-border p-6 mb-8 animate-fade-in-up stagger-item-2">
+                <h3 className="font-serif text-xl font-bold text-foreground mb-4 pb-3 border-b border-border">
+                  Current Issue
+                </h3>
+                <div className="mb-4">
+                  <p className="text-xs text-primary font-bold tracking-widest mb-2">
+                    {issues[0].volume.toUpperCase()} • {issues[0].issue.toUpperCase()}
+                  </p>
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-2">
+                    {issues[0].title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {issues[0].date}
+                  </p>
+                </div>
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-10 text-sm font-serif">
+                  Read Issue
+                </Button>
+              </div>
+
+              {/* Categories */}
+              <div className="bg-secondary/30 border border-border p-6 mb-8 animate-fade-in-up stagger-item-3">
+                <h3 className="font-serif text-lg font-bold text-foreground mb-4 pb-3 border-b border-border">
+                  Categories
+                </h3>
+                <div className="space-y-2">
+                  {["Applied Ethics", "Social Justice", "Philosophy", "Political Ethics", "Aesthetics"].map((cat) => (
+                    <a key={cat} href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                      {cat}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit */}
+              <div className="bg-primary/10 border border-primary p-6 animate-fade-in-up stagger-item-4">
+                <h3 className="font-serif text-lg font-bold text-foreground mb-3">
+                  Submit Your Work
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Have an article about ethics? We'd love to read it.
+                </p>
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm h-10 text-sm font-serif">
+                  Submit Article
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Submit Section */}
-      <section className="py-24 bg-background animate-fade-in-up">
-        <div className="container max-w-3xl text-center">
-          <h2 className="font-serif text-4xl font-bold text-foreground mb-6 stagger-item-1">
-            Submit Your Work
+      {/* Past Issues Archive */}
+      <section className="py-16 bg-secondary/20 border-t border-border">
+        <div className="container">
+          <h2 className="font-serif text-4xl font-bold text-foreground mb-12 pb-4 border-b-2 border-primary">
+            Archive
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
-            Encompass welcomes submissions from all Princeton undergraduates. We accept essays, creative writing, research papers, and other forms of ethical inquiry. Submissions are peer-reviewed and published on a rolling basis.
-          </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
-            Submit an Article
-          </Button>
+          
+          <div className="space-y-6">
+            {issues.map((issue, index) => (
+              <div key={index} className={`border-l-4 border-primary pl-6 py-4 hover:bg-secondary/20 transition-colors cursor-pointer animate-fade-in-up stagger-item-${Math.min(index + 1, 8)}`}>
+                <div className="flex justify-between items-start gap-4 mb-2">
+                  <div>
+                    <p className="text-xs text-primary font-bold tracking-widest mb-1">
+                      {issue.volume.toUpperCase()} • {issue.issue.toUpperCase()}
+                    </p>
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                      {issue.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {issue.date}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">
+                  {issue.description}
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-sm px-4 h-8 text-xs font-medium"
+                >
+                  View Issue
+                </Button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

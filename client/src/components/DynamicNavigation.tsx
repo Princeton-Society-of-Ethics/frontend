@@ -28,9 +28,16 @@ export default function DynamicNavigation() {
 
   const navItems = [
     { label: "ABOUT", href: "/about" },
+    { label: "TEAM", href: "/team" },
     { label: "INITIATIVES", href: "/initiatives" },
     { label: "MAGAZINE", href: "/journal" },
-    { label: "TEAM", href: "/team" },
+    { label: "JOIN US", href: "/join" }
+  ];
+
+  const desktopNavItems = [
+    { label: "ABOUT", href: "/about" },
+    { label: "INITIATIVES", href: "/initiatives" },
+    { label: "MAGAZINE", href: "/journal" },
     { label: "JOIN US", href: "/join" }
   ];
 
