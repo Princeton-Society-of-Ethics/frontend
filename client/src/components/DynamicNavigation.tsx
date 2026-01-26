@@ -44,7 +44,7 @@ export default function DynamicNavigation() {
             : "bg-transparent"
         }`}
       >
-        <div className={`container flex items-center justify-between transition-all duration-500 px-4 md:px-0 ${
+        <div className={`container flex items-center transition-all duration-500 px-4 md:px-0 ${
           isScrolled ? "h-20" : "h-32"
         }`}>
           {/* Logo and Title - Always visible */}
@@ -82,7 +82,7 @@ export default function DynamicNavigation() {
 
           {/* Desktop Navigation - Only visible when scrolled */}
           <div
-            className={`hidden lg:flex items-center gap-6 transition-all duration-500 ${
+            className={`hidden lg:flex items-center gap-6 ml-auto mr-3 transition-all duration-500 ${
               isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >

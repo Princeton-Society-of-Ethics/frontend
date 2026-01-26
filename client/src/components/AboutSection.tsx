@@ -32,7 +32,7 @@ export default function AboutSection() {
               Cultivating <span className="text-primary">Moral Leadership</span>
             </h2>
           </div>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-6">
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
               Founded in 2004, the Princeton Undergraduate Society of Ethics (PUSE) serves as the university's premier forum for ethical discourse.
             </p>
