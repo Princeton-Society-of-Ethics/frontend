@@ -51,9 +51,9 @@ export default function Hero() {
           {/* Main Visual Container */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent rounded-lg overflow-hidden flex items-center justify-center top-0 stagger-item-4 border border-primary/20 shadow-2xl">
             <img 
-              src="/images/logo.png" 
-              alt="The Thinker" 
-              className="h-[50%] w-[50%] object-contain opacity-40 drop-shadow-lg brightness-0 invert"
+              src="/images/socrates-hero.jpg" 
+              alt="Socrates - Ancient Greek Philosopher" 
+              className="h-[60%] w-[60%] object-contain opacity-80 drop-shadow-lg"
             />
           </div>
           
