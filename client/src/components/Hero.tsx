@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background pt-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background pt-32 pb-24">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
@@ -30,7 +30,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-lg md:text-xl text-background/80 max-w-xl leading-relaxed font-light stagger-item-2">
-            The Princeton Undergraduate Society of Ethics is a student-run organization dedicated to fostering rigorous ethical inquiry and moral reflection.
+            The Princeton Undergraduate Society for Ethics promotes ethical reflection on today’s most pressing issues through initiatives that engage Princeton’s undergraduate and graduate students and faculty.
           </p>
           
           <div className="flex flex-wrap gap-4 pt-4 stagger-item-3">

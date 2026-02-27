@@ -30,7 +30,6 @@ export default function DynamicNavigation() {
     { label: "ABOUT", href: "/about" },
     { label: "TEAM", href: "/team" },
     { label: "INITIATIVES", href: "/initiatives" },
-    { label: "EVENTS", href: "/events" },
     { label: "MAGAZINE", href: "/journal" },
     { label: "JOIN US", href: "/join" }
   ];

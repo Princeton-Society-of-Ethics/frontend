@@ -34,13 +34,13 @@ export default function AboutSection() {
           </div>
           <div className="space-y-6 text-lg text-white/80 leading-relaxed">
             <p>
-              Founded in 2004, the Princeton Undergraduate Society of Ethics (PUSE) serves as the university's premier forum for ethical discourse.
+              Founded in 2023 by Joel Ibabao, the Princeton Undergraduate Society of Ethics serves as the university's premier forum for ethical discourse. We believe that the most pressing issues of our time are not merely technical or empirical, but fundamental questions of value. How should self-driving cars make decisions when harm is unavoidable? Should prisons prioritize in-person visitation over phone or video calls, even when doing so is more costly or difficult to administer? Do animals deserve the same moral consideration as humans when their suffering is at stake?
             </p>
             <p>
-              We believe that the most pressing problems of our time are not merely technical or political, but fundamentally <span className="text-orange-400 font-semibold">ethical</span>. By equipping students with the tools of moral philosophy, we prepare them to lead with integrity in an increasingly complex world.
+              By equipping students with the tools of moral philosophy, we prepare students to think, act, and lead with integrity in an increasingly complex and noisy world.
             </p>
             <p>
-              Our membership includes students from diverse majors—from Philosophy to Computer Science, Public Policy to Molecular Biology—united by a shared commitment to examining the "why" behind the "what."
+              Our work draws on the talents of students from diverse majors, including Physics, Computer Science, Public Policy, and Molecular Biology. Each member brings not only a distinct set of skills, but also experiences that enrich our conversations in substantive ways. We strive to forge a community that explores the many frontiers of ethics, where every voice has value.
             </p>
           </div>
 

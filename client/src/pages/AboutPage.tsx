@@ -17,7 +17,7 @@ export default function AboutPage() {
             Our Story
           </h1>
           <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
-            Since 2004, the Princeton Undergraduate Society of Ethics has been a beacon for rigorous moral inquiry and intellectual discourse on campus.
+            Founded in 2023 by Joel Ibabao, the Princeton Undergraduate Society of Ethics serves as the university's premier forum for ethical discourse and rigorous moral inquiry on campus.
           </p>
         </div>
       </section>
@@ -34,13 +34,13 @@ export default function AboutPage() {
           
           <div className="space-y-8 text-lg text-muted-foreground leading-relaxed">
             <p className="stagger-item-3">
-              The Princeton Undergraduate Society of Ethics exists to cultivate a community of students committed to serious ethical inquiry. We believe that the most pressing challenges of our time—from artificial intelligence to climate change, from social justice to global inequality—are fundamentally ethical in nature.
+              We believe that the most pressing issues of our time are not merely technical or empirical, but fundamental questions of value. How should self-driving cars make decisions when harm is unavoidable? Should prisons prioritize in-person visitation over phone or video calls, even when doing so is more costly or difficult to administer? Do animals deserve the same moral consideration as humans when their suffering is at stake?
             </p>
             <p className="stagger-item-4">
-              Our organization brings together students from across the university, regardless of major or background, to engage in rigorous philosophical debate, attend lectures by leading ethicists, and collaborate on projects that apply ethical frameworks to real-world problems.
+              By equipping students with the tools of moral philosophy, we prepare students to think, act, and lead with integrity in an increasingly complex and noisy world. Our work draws on the talents of students from diverse majors, including Physics, Computer Science, Public Policy, and Molecular Biology.
             </p>
             <p className="stagger-item-5">
-              We are dedicated to creating a space where difficult questions are asked without fear, where diverse perspectives are honored, and where students develop the moral reasoning skills necessary to lead with integrity in an increasingly complex world.
+              Each member brings not only a distinct set of skills, but also experiences that enrich our conversations in substantive ways. We strive to forge a community that explores the many frontiers of ethics, where every voice has value.
             </p>
           </div>
         </div>

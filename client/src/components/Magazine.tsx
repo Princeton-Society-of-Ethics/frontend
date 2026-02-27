@@ -12,7 +12,7 @@ export default function Magazine() {
       date: "January 2025",
       excerpt: "Exploring the moral implications of AI development and deployment in society.",
       category: "Technology",
-      link: "/encompass/ai-ethics"
+      link: "/journal/ai-ethics"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function Magazine() {
       date: "December 2024",
       excerpt: "How intergenerational justice shapes our response to environmental crises.",
       category: "Environment",
-      link: "/encompass/climate-justice"
+      link: "/journal/climate-justice"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function Magazine() {
       date: "November 2024",
       excerpt: "Understanding how admitting what we don't know strengthens ethical reasoning.",
       category: "Philosophy",
-      link: "/encompass/intellectual-humility"
+      link: "/journal/intellectual-humility"
     }
   ];
 
@@ -41,13 +41,13 @@ export default function Magazine() {
           <div className="max-w-2xl">
             <span className="text-primary font-serif italic text-sm mb-2 block">Featured Publication</span>
             <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
-              <span className="text-primary">Encompass</span> Magazine
+              <span className="text-primary">Telos</span> Magazine
             </h2>
             <p className="text-muted-foreground text-lg mt-4 font-light max-w-xl">
               A student-led magazine exploring contemporary ethical questions through rigorous analysis and diverse perspectives.
             </p>
           </div>
-          <Link href="/encompass">
+          <Link href="/journal">
             <Button variant="outline" className="rounded-sm border-2 px-6 h-12 font-serif">
               View All Issues
             </Button>

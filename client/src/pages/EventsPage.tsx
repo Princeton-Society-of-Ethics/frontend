@@ -20,7 +20,7 @@ export default function EventsPage() {
     },
     {
       id: 2,
-      title: "Encompass Magazine Launch",
+      title: "Telos Magazine Launch",
       season: "Spring Semester",
       description: "Celebrate the publication of our annual ethics journal featuring student writing, research, and artistic contributions. This event showcases the intellectual work of our community and provides a platform for student voices on ethical topics.",
       highlights: [
@@ -190,7 +190,7 @@ export default function EventsPage() {
                 className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-serif text-lg font-bold">Encompass Magazine</p>
+                <p className="text-white font-serif text-lg font-bold">Telos Magazine</p>
               </div>
             </div>
             

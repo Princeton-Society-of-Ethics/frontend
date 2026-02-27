@@ -1,27 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BookOpen, Users, Mic } from "lucide-react";
+import { ArrowRight, Award, BookOpen, GraduationCap, Mic } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Initiatives() {
   const initiatives = [
     {
-      title: "Bioethics Forum",
-      description: "Examining the moral implications of biological research and medical applications in the modern world.",
-      icon: <Users className="h-10 w-10 text-primary" />,
-      link: "/initiatives/bioethics"
+      title: "The Intercollegiate Ethics Bowl",
+      description: "A national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions through clear reasoning and thoughtful, respectful dialogue.",
+      icon: <Award className="h-10 w-10 text-primary" />,
+      link: "/initiatives"
     },
     {
-      title: "The Journal",
-      description: "A student-run publication featuring undergraduate papers on ethical theory and applied ethics.",
+      title: "Telos",
+      description: "An ethics magazine that enriches, expands, and sustains the conversation about values. We publish essays by undergraduates who engage critically and creatively with questions of ethics and morality.",
       icon: <BookOpen className="h-10 w-10 text-primary" />,
       link: "/journal"
     },
     {
-      title: "Speaker Series",
-      description: "Hosting distinguished philosophers and public figures to discuss contemporary ethical challenges.",
+      title: "NJ Regional High School Ethics Bowl",
+      description: "We organized the 3rd Annual NJ Regional High School Ethics Bowl at Princeton, with over 100 participants and 16 competing teams analyzing and discussing complex moral questions.",
+      icon: <GraduationCap className="h-10 w-10 text-primary" />,
+      link: "/initiatives"
+    },
+    {
+      title: "Interview Series",
+      description: "An interview series with leading philosophers and ethicists, exploring the ideas that define who we are and what we owe each other.",
       icon: <Mic className="h-10 w-10 text-primary" />,
-      link: "/events"
+      link: "/initiatives"
     }
   ];
 
@@ -32,11 +38,11 @@ export default function Initiatives() {
           <span className="text-primary font-serif italic text-sm mb-2 block stagger-item-1">What We Do</span>
           <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground leading-tight stagger-item-2">Our <span className="text-primary">Initiatives</span></h2>
           <p className="text-lg text-muted-foreground leading-relaxed mt-4 max-w-2xl stagger-item-3">
-            We translate ethical theory into practice through three core pillars of engagement, fostering a community of rigorous debate and intellectual friendship.
+            We translate ethical theory into practice through four core pillars of engagement, fostering a community of rigorous debate and intellectual friendship.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {initiatives.map((item, index) => {
             const staggerClass = `stagger-item-${index + 4}`;
             return (

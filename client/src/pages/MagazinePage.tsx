@@ -102,7 +102,7 @@ export default function MagazinePage() {
           <div className="text-center mb-8 stagger-item-1 animate-fade-in">
             <p className="text-primary font-serif italic text-sm mb-2">Est. 2010</p>
             <h1 className="font-serif text-7xl md:text-8xl font-bold text-foreground mb-2 tracking-tight">
-              ENCOMPASS
+              TELOS
             </h1>
             <div className="h-1 w-24 bg-primary mx-auto mb-4"></div>
             <p className="text-lg text-muted-foreground font-light italic">

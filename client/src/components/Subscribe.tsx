@@ -15,7 +15,7 @@ export default function Subscribe() {
             <div>
               <h2 className="font-serif text-3xl font-bold mb-4 text-foreground">Join the <span className="text-primary">Conversation</span></h2>
               <p className="text-muted-foreground mb-6">
-                Subscribe to our newsletter to receive updates on upcoming events, recent Encompass publications, and opportunities for fellowship.
+                Subscribe to our newsletter to receive updates on upcoming events, recent Telos publications, and opportunities for fellowship.
               </p>
               <div className="flex items-center gap-2 text-sm font-medium text-primary">
                 <span className="flex h-2 w-2 rounded-full bg-primary"></span>

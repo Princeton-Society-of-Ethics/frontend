@@ -10,9 +10,6 @@ import InitiativesPage from "./pages/InitiativesPage";
 import MagazinePage from "./pages/MagazinePage";
 import JoinPage from "./pages/JoinPage";
 import TeamPage from "./pages/TeamPage";
-import EventsPage from "./pages/EventsPage";
-
-
 function Router() {
   return (
     <Switch>
@@ -23,7 +20,6 @@ function Router() {
       <Route path={"/magazine"} component={MagazinePage} />
       <Route path={"/join"} component={JoinPage} />
       <Route path={"/team"} component={TeamPage} />
-      <Route path={"/events"} component={EventsPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

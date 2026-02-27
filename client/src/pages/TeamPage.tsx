@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
@@ -5,53 +6,32 @@ import PageTransition from "@/components/PageTransition";
 
 export default function TeamPage() {
   const executiveBoard = [
-    {
-      name: "Sarah Chen",
-      role: "President",
-      bio: "Senior majoring in Philosophy and Computer Science. Sarah leads our organization's strategic direction and oversees all major initiatives. She's passionate about AI ethics and has published work on algorithmic bias.",
-      email: "schen@princeton.edu"
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Vice President",
-      bio: "Junior majoring in Public Policy and Ethics. Marcus manages day-to-day operations and coordinates our speaker series. He's interested in environmental ethics and climate policy.",
-      email: "mjohnson@princeton.edu"
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Secretary",
-      bio: "Senior majoring in Philosophy. Elena oversees our communications and manages our social media presence. She's focused on bioethics and medical decision-making.",
-      email: "erodriguez@princeton.edu"
-    },
-    {
-      name: "David Park",
-      role: "Treasurer",
-      bio: "Junior majoring in Economics and Philosophy. David manages our budget and fundraising efforts. He's interested in economic justice and business ethics.",
-      email: "dpark@princeton.edu"
-    }
+    { name: "Joel Ibabao", role: "President" },
+    { name: "Sabrina Wang", role: "Print Manager" },
+    { name: "James Han", role: "Chief Marketing Officer" },
+    { name: "Jianyi", role: "Treasurer" },
+    { name: "Ethan Grover", role: "Community Officer" },
+    { name: "TBD", role: "Technology Director" },
+    { name: "TBD", role: "Strategic Outreach Officer" }
   ];
 
-  const committeeLead = [
-    {
-      name: "Jasmine Patel",
-      role: "Encompass Editor-in-Chief",
-      bio: "Senior majoring in English and Philosophy. Jasmine leads our magazine and oversees the editorial process."
-    },
-    {
-      name: "Thomas Wright",
-      role: "Events Coordinator",
-      bio: "Junior majoring in Philosophy. Thomas organizes our weekly seminars and speaker events."
-    },
-    {
-      name: "Aisha Williams",
-      role: "Outreach Director",
-      bio: "Senior majoring in Sociology. Aisha builds partnerships with other campus organizations and the broader community."
-    },
-    {
-      name: "Kai Chen",
-      role: "Research Lead",
-      bio: "Junior majoring in Philosophy and Biology. Kai oversees our research initiatives and grant programs."
-    }
+  const ethicsBowl = [
+    { name: "Navneeth Gurachar", role: "Captain of Team 1" },
+    { name: "Quest Starkey", role: "Captain of Team 2" },
+    { name: "Matthew Newman", role: "Coach" }
+  ];
+
+  const ethicsOlympiad = [
+    { name: "Tenzin Namgyal", role: "Coach" },
+    { name: "Patrick Jimenez", role: "Coach" },
+    { name: "Professor Alexandra Oprea", role: "Consultant" }
+  ];
+
+  const telos = [
+    { name: "Jacqueline Zhou", role: "Editor-in-Chief" },
+    { name: "Doris Lee", role: "Creative Director" },
+    { name: "Professor Peter Singer", role: "Advisor" },
+    { name: "Professor Gideon A. Rosen", role: "Advisor" }
   ];
 
   return (
@@ -85,29 +65,18 @@ export default function TeamPage() {
             {executiveBoard.map((member, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
               return (
-              <div key={member.name} className={`group relative bg-card rounded-lg border border-border p-10 hover:border-primary hover:shadow-2xl transition-all duration-300 overflow-hidden ${staggerClass}`}>
+              <div key={`${member.name}-${member.role}-${index}`} className={`group relative bg-card rounded-lg border border-border p-10 hover:border-primary hover:shadow-2xl transition-all duration-300 overflow-hidden ${staggerClass}`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative z-10">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors">
-                    <span className="text-4xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                    <span className="text-4xl font-serif font-bold text-primary">{member.name === "TBD" ? "?" : member.name.charAt(0)}</span>
                   </div>
                   <h3 className="font-serif text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                     {member.name}
                   </h3>
-                  <p className="text-primary font-medium text-sm mb-4 uppercase tracking-widest">
+                  <p className="text-primary font-medium text-sm uppercase tracking-widest">
                     {member.role}
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    {member.bio}
-                  </p>
-                  <div className="pt-6 border-t border-border/50">
-                    <a 
-                      href={`mailto:${member.email}`}
-                      className="text-primary hover:text-primary/80 text-sm font-medium inline-flex items-center gap-2"
-                    >
-                      Contact
-                    </a>
-                  </div>
                 </div>
               </div>
             );
@@ -117,40 +86,89 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Committee Leads Section */}
+      {/* Ethics Bowl Section */}
       <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
         <div className="container">
           <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Leadership</span>
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Competition</span>
             <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
-              Committee Leads
+              Ethics Bowl
             </h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {committeeLead.map((member, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {ethicsBowl.map((member, index) => {
               const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
               return (
-              <div key={member.name} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-lg transition-all duration-300 text-center ${staggerClass}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors mx-auto">
-                    <span className="text-2xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                <div key={`${member.name}-${index}`} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-lg transition-all duration-300 text-center ${staggerClass}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors mx-auto">
+                      <span className="text-2xl font-serif font-bold text-primary">{member.name === "TBD" ? "?" : member.name.charAt(0)}</span>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+                    <p className="text-primary font-medium text-xs uppercase tracking-widest">{member.role}</p>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary font-medium text-xs mb-3 uppercase tracking-widest">
-                    {member.role}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
                 </div>
-              </div>
-            );
-            })
-          }
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Ethics Olympiad Section */}
+      <section className="py-24 bg-background border-t border-border animate-fade-in-up">
+        <div className="container">
+          <div className="mb-16">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Competition</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
+              Ethics Olympiad
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {ethicsOlympiad.map((member, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+                <div key={`${member.name}-${index}`} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-lg transition-all duration-300 text-center ${staggerClass}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors mx-auto">
+                      <span className="text-2xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+                    <p className="text-primary font-medium text-xs uppercase tracking-widest">{member.role}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Telos Section */}
+      <section className="py-24 bg-secondary/20 border-t border-border animate-fade-in-up">
+        <div className="container">
+          <div className="mb-16">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">Publication</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
+              <span className="text-primary">Telos</span> Magazine
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {telos.map((member, index) => {
+              const staggerClass = `stagger-item-${Math.min(index + 3, 8)}`;
+              return (
+                <div key={`${member.name}-${index}`} className={`group relative bg-card rounded-lg border border-border p-8 hover:border-primary hover:shadow-lg transition-all duration-300 text-center ${staggerClass}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mb-6 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary transition-colors mx-auto">
+                      <span className="text-2xl font-serif font-bold text-primary">{member.name.charAt(0)}</span>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+                    <p className="text-primary font-medium text-xs uppercase tracking-widest">{member.role}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,9 +182,11 @@ export default function TeamPage() {
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed stagger-item-2">
             We're always looking for passionate students to join our leadership team. Leadership applications open twice a year—in the fall and spring. Whether you're interested in event planning, publications, outreach, or operations, there's a role for you.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
-            Learn About Leadership Roles
-          </Button>
+          <Link href="/join">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 h-12 text-base font-serif stagger-item-3">
+              Join Us
+            </Button>
+          </Link>
         </div>
       </section>
 

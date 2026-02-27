@@ -1,9 +1,37 @@
+import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 
 export default function JoinPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    classYear: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // TODO: Connect to backend/email service
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    setFormData({ name: "", email: "", classYear: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const benefits = [
     {
       title: "Community",
@@ -15,7 +43,7 @@ export default function JoinPage() {
     },
     {
       title: "Publication",
-      description: "Share your writing and ideas through Encompass magazine and our platforms."
+      description: "Share your writing and ideas through Telos magazine and our platforms."
     },
     {
       title: "Leadership",
@@ -41,7 +69,7 @@ export default function JoinPage() {
       answer: "Membership is flexible. You can attend as many or as few events as you'd like. Leadership positions require more commitment, typically 5-10 hours per week, but general membership has no minimum requirements."
     },
     {
-      question: "How do I get involved with Encompass magazine?",
+      question: "How do I get involved with Telos magazine?",
       answer: "You can submit articles, serve on our editorial board, or help with design and layout. All levels of writing experience are welcome. We also accept creative writing, visual essays, and other experimental forms."
     },
     {
@@ -133,11 +161,98 @@ export default function JoinPage() {
                   Get Involved
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Contribute to discussions, submit articles to Encompass, volunteer for events, or apply for a leadership position. There are many ways to participate at whatever level works for you.
+                  Contribute to discussions, submit articles to Telos, volunteer for events, or apply for a leadership position. There are many ways to participate at whatever level works for you.
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Join Inquiry Form Section */}
+      <section className="py-24 bg-background border-t border-border animate-fade-in-up">
+        <div className="container max-w-2xl">
+          <div className="mb-12 text-center">
+            <span className="text-primary font-serif italic text-sm mb-4 block">Get in Touch</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground">
+              Join Inquiry Form
+            </h2>
+            <p className="text-muted-foreground mt-4">
+              Tell us a bit about yourself and why you're interested in joining. We'll get back to you shortly.
+            </p>
+          </div>
+
+          {isSubmitted ? (
+            <div className="text-center py-16 px-6 rounded-lg border-2 border-primary/20 bg-primary/5">
+              <p className="font-serif text-xl font-bold text-foreground mb-2">Thank you for your interest!</p>
+              <p className="text-muted-foreground">
+                We've received your inquiry and will be in touch soon. In the meantime, feel free to attend one of our upcoming events.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="h-11"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="h-11"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="classYear">Class Year (optional)</Label>
+                <Input
+                  id="classYear"
+                  name="classYear"
+                  type="text"
+                  placeholder="e.g., 2026"
+                  value={formData.classYear}
+                  onChange={handleChange}
+                  className="h-11"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Why are you interested in joining? *</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your interest in ethics, what you hope to contribute, or any questions you have..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="resize-none"
+                />
+              </div>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-12 h-12 text-base font-serif"
+              >
+                {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+              </Button>
+            </form>
+          )}
         </div>
       </section>
 
@@ -185,11 +300,13 @@ export default function JoinPage() {
               <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
                 Contact Us
               </Button>
-              <Button 
-                className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif"
-              >
-                View Events
-              </Button>
+              <Link href="/initiatives">
+                <Button 
+                  className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif"
+                >
+                  View Initiatives
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

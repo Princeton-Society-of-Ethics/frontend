@@ -6,34 +6,24 @@ import PageTransition from "@/components/PageTransition";
 export default function InitiativesPage() {
   const initiatives = [
     {
-      title: "Speaker Series",
-      description: "Bringing leading ethicists and philosophers to Princeton for public lectures and discussions.",
-      details: "Our annual speaker series features renowned scholars, practitioners, and thought leaders who engage with students on pressing ethical questions. Past speakers include bioethicists, environmental philosophers, and experts in AI ethics."
+      title: "The Intercollegiate Ethics Bowl",
+      description: "A national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions.",
+      details: "The Intercollegiate Ethics Bowl is a national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions. Judges look for clear reasoning, an understanding of different perspectives, and thoughtful, respectful dialogue rather than quick point-scoring."
     },
     {
-      title: "Encompass Magazine",
-      description: "A student-run publication showcasing original writing on ethics, philosophy, and moral inquiry.",
-      details: "Encompass publishes peer-reviewed essays, creative writing, and research from Princeton undergraduates exploring ethical themes. We accept submissions on any topic related to ethics, from traditional philosophy to applied ethics in technology and society."
+      title: "Telos",
+      description: "An ethics magazine that enriches, expands, and sustains the conversation about values.",
+      details: "Telos is an ethics magazine that enriches, expands, and sustains the conversation about values—the most important conversation any culture and society can have. We publish essays by undergraduate students who engage critically and creatively with questions of ethics and morality."
     },
     {
-      title: "Discussion Seminars",
-      description: "Weekly facilitated discussions on contemporary ethical issues and philosophical texts.",
-      details: "Our seminars provide a space for students to engage deeply with ethical texts and current events. Topics range from classical philosophy to modern dilemmas in bioethics, environmental ethics, and social justice."
+      title: "NJ Regional High School Ethics Bowl",
+      description: "A team-based academic competition where students analyze and discuss complex moral questions about real-world issues.",
+      details: "The National High School Ethics Bowl (NHSEB) is a team-based academic competition where students analyze and discuss complex moral questions about real-world issues. We organized the 3rd Annual NJ Regional High School Ethics Bowl at Princeton University, held on January 31, 2026, at the Friend Center, with over 100 participants and 16 competing teams."
     },
     {
-      title: "Ethics in Action",
-      description: "Applied ethics projects that tackle real-world problems through philosophical frameworks.",
-      details: "We collaborate with campus organizations and community partners to apply ethical analysis to pressing issues. Recent projects have focused on AI governance, climate justice, and educational equity."
-    },
-    {
-      title: "Mentorship Program",
-      description: "Connecting experienced student leaders with newer members to foster intellectual growth.",
-      details: "Our mentorship program pairs experienced members with students new to ethical inquiry, providing guidance on coursework, research, and personal development. Mentors help mentees navigate ethical questions and develop leadership skills."
-    },
-    {
-      title: "Research Collaborations",
-      description: "Supporting student-led research projects in applied ethics and moral philosophy.",
-      details: "We provide resources and mentorship for students conducting original research on ethical topics. Recent projects have explored algorithmic bias, climate ethics, and social justice frameworks."
+      title: "Interview Series",
+      description: "Conversations with leading philosophers and ethicists on the ideas that define who we are.",
+      details: "An interview series with leading philosophers and ethicists, exploring the ideas that define who we are and what we owe each other."
     }
   ];
 
@@ -69,7 +59,11 @@ export default function InitiativesPage() {
                     <div className="space-y-6">
                       <div>
                         <h3 className="font-serif text-3xl font-bold text-foreground mb-3">
-                          {initiative.title}
+                          {initiative.title === "Telos" ? (
+                            <><span className="text-primary">Telos</span> Magazine</>
+                          ) : (
+                            initiative.title
+                          )}
                         </h3>
                         <p className="text-lg text-muted-foreground font-medium mb-4">
                           {initiative.description}
@@ -79,13 +73,6 @@ export default function InitiativesPage() {
                       <p className="text-muted-foreground leading-relaxed text-base">
                         {initiative.details}
                       </p>
-                      
-                      <div className="pt-4">
-                        <a href="#" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors">
-                          Learn more about this initiative
-                          <span>→</span>
-                        </a>
-                      </div>
                     </div>
                   </div>
                   
@@ -105,7 +92,90 @@ export default function InitiativesPage() {
         </div>
       </section>
 
+      {/* Photo Gallery Section - Masonry Layout */}
+      <section className="py-32 bg-gradient-to-b from-background to-secondary/10 border-b border-border animate-fade-in-up">
+        <div className="container">
+          <div className="mb-16">
+            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">3rd Annual NJ Regional High School Ethics Bowl</span>
+            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
+              Moments from Our Initiatives
+            </h2>
+          </div>
 
+          {/* Masonry Gallery Layout - 3rd Annual NJ High School Ethics Bowl */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:grid-rows-[24rem_24rem_24rem]">
+            {/* Large featured image - 3rd Annual NJ Ethics Bowl main event */}
+            <div className="md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-3 min-h-64 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-5.png" 
+                alt="3rd Annual NJ High School Ethics Bowl" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Top row */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-4 min-h-64 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-2.png" 
+                alt="Ethics Bowl presentation" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-5 min-h-64 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-4.png" 
+                alt="Team strategy session" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Team discussion */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-6 min-h-48 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-3.png" 
+                alt="Team discussion" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Large featured - team collaboration */}
+            <div className="md:col-span-1 lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-7 min-h-64 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-1.png" 
+                alt="Team collaboration at Ethics Bowl" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Close-up discussion */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-48 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-6.png" 
+                alt="Students in discussion" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Team at work with supervisor */}
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-48 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-7.png" 
+                alt="Team at work with supervisor" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Community gathering / networking */}
+            <div className="md:col-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-56 lg:min-h-0">
+              <img 
+                src="/images/ethics-bowl-8.png" 
+                alt="Community gathering at Ethics Bowl" 
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
@@ -124,9 +194,6 @@ export default function InitiativesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
             <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
               Join Our Community
-            </Button>
-            <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
-              Learn More
             </Button>
           </div>
         </div>
