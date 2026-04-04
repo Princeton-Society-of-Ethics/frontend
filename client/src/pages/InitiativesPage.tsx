@@ -2,28 +2,38 @@ import { Button } from "@/components/ui/button";
 import DynamicNavigation from "@/components/DynamicNavigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 export default function InitiativesPage() {
   const initiatives = [
     {
       title: "The Intercollegiate Ethics Bowl",
       description: "A national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions.",
-      details: "The Intercollegiate Ethics Bowl is a national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions. Judges look for clear reasoning, an understanding of different perspectives, and thoughtful, respectful dialogue rather than quick point-scoring."
+      details: "The Intercollegiate Ethics Bowl is a national ethics competition where undergraduates discuss real-world moral issues and defend their team's positions. Judges look for clear reasoning, an understanding of different perspectives, and thoughtful, respectful dialogue rather than quick point-scoring.",
+      ctaHref: "/initiatives/moments",
+      ctaLabel: "View moments & gallery"
     },
     {
       title: "Telos",
       description: "An ethics magazine that enriches, expands, and sustains the conversation about values.",
-      details: "Telos is an ethics magazine that enriches, expands, and sustains the conversation about values—the most important conversation any culture and society can have. We publish essays by undergraduate students who engage critically and creatively with questions of ethics and morality."
+      details: "Telos is an ethics magazine that enriches, expands, and sustains the conversation about values—the most important conversation any culture and society can have. We publish essays by undergraduate students who engage critically and creatively with questions of ethics and morality.",
+      ctaHref: "/journal",
+      ctaLabel: "Explore Telos"
     },
     {
       title: "NJ Regional High School Ethics Bowl",
       description: "A team-based academic competition where students analyze and discuss complex moral questions about real-world issues.",
-      details: "The National High School Ethics Bowl (NHSEB) is a team-based academic competition where students analyze and discuss complex moral questions about real-world issues. We organized the 3rd Annual NJ Regional High School Ethics Bowl at Princeton University, held on January 31, 2026, at the Friend Center, with over 100 participants and 16 competing teams."
+      details: "The National High School Ethics Bowl (NHSEB) is a team-based academic competition where students analyze and discuss complex moral questions about real-world issues. We organized the 3rd Annual NJ Regional High School Ethics Bowl at Princeton University, held on January 31, 2026, at the Friend Center, with over 100 participants and 16 competing teams.",
+      ctaHref: "/join",
+      ctaLabel: "Get involved"
     },
     {
       title: "Interview Series",
       description: "Conversations with leading philosophers and ethicists on the ideas that define who we are.",
-      details: "An interview series with leading philosophers and ethicists, exploring the ideas that define who we are and what we owe each other."
+      details: "An interview series with leading philosophers and ethicists, exploring the ideas that define who we are and what we owe each other.",
+      ctaHref: "/initiatives/interview-series",
+      ctaLabel: "Listen to episodes"
     }
   ];
 
@@ -33,12 +43,17 @@ export default function InitiativesPage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
-        <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
-            Our Initiatives
+      <section className="relative overflow-hidden pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
+        <div
+          className="pointer-events-none absolute -right-24 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl"
+          aria-hidden
+        />
+        <div className="container relative">
+          <h1 className="mb-3 font-serif text-6xl font-bold text-white md:text-7xl stagger-item-1">
+            Our <span className="text-primary">Initiatives</span>
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
+          <div className="mb-6 h-1 w-20 rounded-full bg-primary stagger-item-2" aria-hidden />
+          <p className="max-w-2xl text-xl font-light text-white/80 stagger-item-2">
             We engage the campus community through diverse programs and projects that advance ethical inquiry and moral leadership.
           </p>
         </div>
@@ -73,6 +88,16 @@ export default function InitiativesPage() {
                       <p className="text-muted-foreground leading-relaxed text-base">
                         {initiative.details}
                       </p>
+                      <Link
+                        href={initiative.ctaHref}
+                        className="group mt-4 inline-flex items-center gap-2 font-serif text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:text-primary/80"
+                      >
+                        {initiative.ctaLabel}
+                        <ArrowRight
+                          className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                          aria-hidden
+                        />
+                      </Link>
                     </div>
                   </div>
                   
@@ -92,91 +117,6 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-      {/* Photo Gallery Section - Masonry Layout */}
-      <section className="py-32 bg-gradient-to-b from-background to-secondary/10 border-b border-border animate-fade-in-up">
-        <div className="container">
-          <div className="mb-16">
-            <span className="text-primary font-serif italic text-sm mb-4 block stagger-item-1">3rd Annual NJ Regional High School Ethics Bowl</span>
-            <h2 className="font-serif text-5xl font-bold text-foreground stagger-item-2">
-              Moments from Our Initiatives
-            </h2>
-          </div>
-
-          {/* Masonry Gallery Layout - 3rd Annual NJ High School Ethics Bowl */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:grid-rows-[24rem_24rem_24rem]">
-            {/* Large featured image - 3rd Annual NJ Ethics Bowl main event */}
-            <div className="md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-3 min-h-64 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-5.png" 
-                alt="3rd Annual NJ High School Ethics Bowl" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Top row */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-4 min-h-64 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-2.png" 
-                alt="Ethics Bowl presentation" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-5 min-h-64 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-4.png" 
-                alt="Team strategy session" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Team discussion */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-6 min-h-48 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-3.png" 
-                alt="Team discussion" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Large featured - team collaboration */}
-            <div className="md:col-span-1 lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-7 min-h-64 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-1.png" 
-                alt="Team collaboration at Ethics Bowl" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Close-up discussion */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-48 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-6.png" 
-                alt="Students in discussion" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Team at work with supervisor */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-48 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-7.png" 
-                alt="Team at work with supervisor" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            
-            {/* Community gathering / networking */}
-            <div className="md:col-span-2 group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 stagger-item-8 min-h-56 lg:min-h-0">
-              <img 
-                src="/images/ethics-bowl-8.png" 
-                alt="Community gathering at Ethics Bowl" 
-                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-primary animate-fade-in-up">
         {/* Background decoration */}
@@ -191,10 +131,12 @@ export default function InitiativesPage() {
           <p className="text-lg text-primary-foreground/90 mb-10 leading-relaxed stagger-item-2">
             Whether you're a philosophy major or a computer scientist, an experienced ethicist or someone just beginning to explore these questions, there's a place for you in our community.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-item-3">
-            <Button className="bg-background text-primary hover:bg-background/90 rounded-sm px-8 h-12 text-base font-serif">
-              Join Our Community
-            </Button>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row stagger-item-3">
+            <Link href="/join">
+              <Button className="h-12 rounded-sm bg-background px-8 font-serif text-base text-primary hover:bg-background/90">
+                Join Our Community
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

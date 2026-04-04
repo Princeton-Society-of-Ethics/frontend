@@ -2,7 +2,8 @@ import DynamicNavigation from "@/components/DynamicNavigation";
 import Hero from "@/components/Hero";
 import Initiatives from "@/components/Initiatives";
 import AboutSection from "@/components/AboutSection";
-import Magazine from "@/components/Magazine";
+// import Magazine from "@/components/Magazine";
+import SponsorPartnerSection from "@/components/SponsorPartnerSection";
 import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
@@ -17,7 +18,8 @@ export default function Home() {
         <Hero />
         <Initiatives />
         <AboutSection />
-        <Magazine />
+        {/* Telos Magazine homepage section — restore: import Magazine and use <Magazine /> */}
+        <SponsorPartnerSection />
         <Subscribe />
       </main>
       

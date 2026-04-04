@@ -97,12 +97,16 @@ export default function MagazinePage() {
       <DynamicNavigation />
       
       {/* Newspaper-style Header */}
-      <section className="pt-32 pb-12 bg-background border-b-4 border-primary">
-        <div className="container">
-          <div className="text-center mb-8 stagger-item-1 animate-fade-in">
+      <section className="relative overflow-hidden border-b-4 border-primary bg-background pt-32 pb-12">
+        <div
+          className="pointer-events-none absolute -right-20 top-1/4 h-64 w-64 rounded-full bg-primary/12 blur-3xl"
+          aria-hidden
+        />
+        <div className="container relative">
+          <div className="mb-8 text-center stagger-item-1 animate-fade-in">
             <p className="text-primary font-serif italic text-sm mb-2">Est. 2010</p>
             <h1 className="font-serif text-7xl md:text-8xl font-bold text-foreground mb-2 tracking-tight">
-              TELOS
+              TEL<span className="text-primary">OS</span>
             </h1>
             <div className="h-1 w-24 bg-primary mx-auto mb-4"></div>
             <p className="text-lg text-muted-foreground font-light italic">

@@ -27,7 +27,7 @@ export default function Initiatives() {
       title: "Interview Series",
       description: "An interview series with leading philosophers and ethicists, exploring the ideas that define who we are and what we owe each other.",
       icon: <Mic className="h-10 w-10 text-primary" />,
-      link: "/initiatives"
+      link: "/initiatives/interview-series"
     }
   ];
 

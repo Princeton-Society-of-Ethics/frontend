@@ -50,12 +50,17 @@ export default function EventsPage() {
       <DynamicNavigation />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
-        <div className="container">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold text-white mb-6 stagger-item-1">
-            Our Events
+      <section className="relative overflow-hidden pt-40 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-fade-in">
+        <div
+          className="pointer-events-none absolute -right-24 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl"
+          aria-hidden
+        />
+        <div className="container relative">
+          <h1 className="mb-3 font-serif text-6xl font-bold text-white md:text-7xl stagger-item-1">
+            Our <span className="text-primary">Events</span>
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl font-light stagger-item-2">
+          <div className="mb-6 h-1 w-20 rounded-full bg-primary stagger-item-2" aria-hidden />
+          <p className="max-w-2xl text-xl font-light text-white/80 stagger-item-2">
             Throughout the year, we host three major events that bring our community together to explore ethics, share ideas, and celebrate student scholarship.
           </p>
         </div>

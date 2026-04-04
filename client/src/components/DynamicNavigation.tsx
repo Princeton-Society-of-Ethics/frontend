@@ -30,14 +30,14 @@ export default function DynamicNavigation() {
     { label: "ABOUT", href: "/about" },
     { label: "TEAM", href: "/team" },
     { label: "INITIATIVES", href: "/initiatives" },
-    { label: "MAGAZINE", href: "/journal" },
+    // { label: "MAGAZINE", href: "/journal" },
     { label: "JOIN US", href: "/join" }
   ];
 
   const desktopNavItems = [
     { label: "ABOUT", href: "/about" },
     { label: "INITIATIVES", href: "/initiatives" },
-    { label: "MAGAZINE", href: "/journal" },
+    // { label: "MAGAZINE", href: "/journal" },
     { label: "JOIN US", href: "/join" }
   ];
 
@@ -103,11 +103,11 @@ export default function DynamicNavigation() {
                 INITIATIVES
               </span>
             </Link>
-            <Link href="/journal">
+            {/* <Link href="/journal">
               <span className="text-foreground text-sm font-medium hover:text-primary transition-colors cursor-pointer">
                 MAGAZINE
               </span>
-            </Link>
+            </Link> */}
             <Link href="/join">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 h-10 text-sm font-serif">
                 JOIN US
